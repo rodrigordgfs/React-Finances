@@ -1,0 +1,28 @@
+{
+    "transactions" : [
+        {
+            "id": "41b08b38-4a1e-4f0d-9887-1b893136ba56",
+            "amount": 4658.49,
+            "title": "Pagamento da empresa X",
+            "category": "Salário",
+            "type": "revenue",
+            "date": "2022-06-01"
+        },
+        {
+            "id": "a3f071c2-4903-427f-bcd7-a06ca6939588",
+            "amount": 701.56,
+            "title": "Compras do mês",
+            "category": "Alimentação",
+            "type": "expense",
+            "date": "2022-06-05"
+        },
+        {
+            "id": "4dbaae97-78d8-46d7-9497-f76e550d621d",
+            "amount": 1250.00,
+            "title": "Aluguel da casa",
+            "category": "Moradia",
+            "type": "expense",
+            "date": "2022-06-07"
+        }
+    ]
+}

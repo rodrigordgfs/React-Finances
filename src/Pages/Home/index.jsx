@@ -3,6 +3,8 @@ import Cards from "../../Components/Cards";
 import Options from "../../Components/Options";
 import Transactions from "../../Components/Transactions";
 import { TransactionsProvider } from "../../contexts/TransactionsProvider";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
   return (
@@ -13,6 +15,7 @@ function App() {
         <Options />
         <Transactions />
       </TransactionsProvider>
+      <ToastContainer />
     </div>
   );
 }

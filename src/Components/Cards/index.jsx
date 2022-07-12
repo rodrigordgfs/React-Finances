@@ -11,7 +11,7 @@ export default function Cards() {
   const { revenue, expense, balance } = transactionsState;
   return (
     <div className="text-white flex flex-col max-w-5xl my-0 mx-auto px-2">
-      <div className="flex flex-row items-center space-x-4">
+      <div className="flex md:flex-row flex-col items-center gap-5">
         <Card
           title="Receita"
           description={formatedMoney(revenue || 0)}

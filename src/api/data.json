@@ -23,6 +23,14 @@
             "category": "Moradia",
             "type": "expense",
             "date": "2022-06-07"
+        },
+        {
+            "id": "73ad77bf-4a06-4fa3-b9f9-bbfb28fa36f3",
+            "amount": 245.86,
+            "title": "Conta de luz",
+            "category": "Moradia",
+            "type": "expense",
+            "date": "2022-06-07"
         }
     ]
 }

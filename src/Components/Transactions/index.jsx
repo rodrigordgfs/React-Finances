@@ -1,38 +1,54 @@
+import { useContext, useEffect, useRef } from "react";
 import { AiOutlinePlus } from "react-icons/ai";
+import { getTransactions } from "../../contexts/TransactionsProvider/actions";
+import { TransactionsContext } from "../../contexts/TransactionsProvider/context";
 import Transaction from "../Transaction";
 
 export default function Transactions() {
+  const isMounted = useRef(true);
+  const transactionsContext = useContext(TransactionsContext);
+  const { transactionsState, transactionsDispatch } = transactionsContext;
+  const transactions = transactionsState.data.transactions || [];
+
+  const quantityTransactions = () => transactions.length;
+
+  useEffect(() => {
+    getTransactions(transactionsDispatch).then((dispatch) => {
+      if (isMounted.current) {
+        dispatch();
+      }
+    });
+  }, [transactionsDispatch]);
+
   return (
     <div className="flex flex-col max-w-5xl my-0 mx-auto px-2 pt-6">
       <div className="flex flex-row items-center space-x-2">
         <AiOutlinePlus color="white" />
         <p className="font-poppins text-white">Minhas Transações</p>
       </div>
-      <div className="bg-zinc-800 rounded shadow my-4 p-4 space-y-2">
+      <div className="bg-zinc-800 rounded shadow my-4 p-4 flex flex-col gap-4">
         <p className="font-poppins text-zinc-300 text-center">
           Nesse mês foi cadastrado{" "}
-          <span className="font-semibold text-white">3</span> itens.
+          <span className="font-semibold text-white">
+            {quantityTransactions()}
+          </span>{" "}
+          itens.
         </p>
         <div className="space-y-5">
-            <Transaction
-                isRecept={true}
-                title="Pagamento da Empresa"
-                type="Salário"
-                value={3456.25}
-                date="2022-07-12"
-            />
-            <Transaction
-                title="Compras do Mês"
-                type="Alimentação"
-                value={650.48}
-                date="2022-07-10"
-            />
-            <Transaction
-                title="Aluguel da Cadsa"
-                type="Moradia"
-                value={1200.00}
-                date="2022-07-6"
-            />
+          {!transactionsState.loading &&
+            transactions.map((transaction) => {
+              const { amount, category, date, id, title, type } = transaction;
+              return (
+                <Transaction
+                  key={id}
+                  title={title}
+                  category={category}
+                  type={type}
+                  value={amount}
+                  date={date}
+                />
+              );
+            })}
         </div>
       </div>
     </div>

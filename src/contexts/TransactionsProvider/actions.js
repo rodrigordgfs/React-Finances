@@ -3,7 +3,7 @@ import * as types from "./types";
 export const getTransactions = async (dispatch) => {
   dispatch({ type: types.TRANSACTIONS_LOADING });
 
-  const transactionsRaw = await fetch("http://localhost:8888/transactions");
+  const transactionsRaw = await fetch("https://rainbow-lowly-dryosaurus.glitch.me/transactions");
   const transactions = await transactionsRaw.json();
 
   return () => {

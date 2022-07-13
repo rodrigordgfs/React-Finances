@@ -1,7 +1,6 @@
 import { AiOutlinePlus } from "react-icons/ai";
 import { HiOutlineEmojiSad } from "react-icons/hi";
 import Transaction from "../Transaction";
-import TransactionsLoading from "../TransactionsLoading";
 
 export default function Transactions({ transactions = [] }) {
   const quantityTransactions = () => transactions.length;

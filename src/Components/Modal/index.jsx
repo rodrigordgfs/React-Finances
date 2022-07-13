@@ -4,13 +4,15 @@ import { AiOutlineClose } from "react-icons/ai";
 import "./index.css";
 import Form from "../Form";
 import { v4 as uuidv4 } from "uuid";
+import TransactionService from "../../services/transactions";
+import { successMessage } from "../../utils/toastify";
 
 ReactModal.setAppElement("#root");
 
 export default function Modal({ isOpen, onRequestClose, title }) {
-  function handleClose() {
+  function handleClose(newTransaction = false) {
     if (onRequestClose) {
-      onRequestClose();
+      onRequestClose(newTransaction);
     }
   }
 
@@ -18,12 +20,19 @@ export default function Modal({ isOpen, onRequestClose, title }) {
     const body = {
       id: uuidv4(),
       title: data.title,
-      ammount: data.value,
+      amount: data.value,
       category: data.category,
       type: data.type,
       date: data.date,
     };
-    console.log(body);
+    TransactionService.post(body)
+      .then(() => {
+        successMessage("Transação adicionada com sucesso!");
+        handleClose(true);
+      })
+      .catch(({ message }) => {
+        errorMessage(message);
+      });
   }
 
   return (

@@ -1,36 +1,124 @@
 {
-    "transactions" : [
-        {
-            "id": "41b08b38-4a1e-4f0d-9887-1b893136ba56",
-            "amount": 4658.49,
-            "title": "Pagamento da empresa X",
-            "category": "Salário",
-            "type": "revenue",
-            "date": "2022-06-01"
-        },
-        {
-            "id": "a3f071c2-4903-427f-bcd7-a06ca6939588",
-            "amount": 701.56,
-            "title": "Compras do mês",
-            "category": "Alimentação",
-            "type": "expense",
-            "date": "2022-06-05"
-        },
-        {
-            "id": "4dbaae97-78d8-46d7-9497-f76e550d621d",
-            "amount": 1250.00,
-            "title": "Aluguel da casa",
-            "category": "Moradia",
-            "type": "expense",
-            "date": "2022-06-07"
-        },
-        {
-            "id": "73ad77bf-4a06-4fa3-b9f9-bbfb28fa36f3",
-            "amount": 245.86,
-            "title": "Conta de luz",
-            "category": "Moradia",
-            "type": "expense",
-            "date": "2022-06-07"
-        }
-    ]
+  "transactions": [
+    {
+      "id": "41b08b38-4a1e-4f0d-9887-1b893136ba56",
+      "amount": 4658.49,
+      "title": "Pagamento da empresa X",
+      "category": "Salário",
+      "type": "Receita",
+      "date": "2022-06-01"
+    },
+    {
+      "id": "a3f071c2-4903-427f-bcd7-a06ca6939588",
+      "amount": 701.56,
+      "title": "Compras do mês",
+      "category": "Alimentação",
+      "type": "Despesa",
+      "date": "2022-06-05"
+    },
+    {
+      "id": "4dbaae97-78d8-46d7-9497-f76e550d621d",
+      "amount": 1250,
+      "title": "Aluguel da casa",
+      "category": "Moradia",
+      "type": "Despesa",
+      "date": "2022-06-07"
+    },
+    {
+      "id": "73ad77bf-4a06-4fa3-b9f9-bbfb28fa36f3",
+      "amount": 245.86,
+      "title": "Conta de luz",
+      "category": "Moradia",
+      "type": "Despesa",
+      "date": "2022-06-07"
+    },
+    {
+      "id": "50633bc4-4fd0-41cb-9428-5ded64961d59",
+      "title": "teste",
+      "amount": "101",
+      "category": "Alimentação",
+      "type": "Receita",
+      "date": "2022-07-20"
+    },
+    {
+      "id": "8252898b-a0f1-437b-87a7-c7f1e4d6cac7",
+      "title": "teste",
+      "amount": "1232",
+      "category": "Alimentação",
+      "type": "Despesa",
+      "date": "2022-07-20"
+    },
+    {
+      "id": "5ce41a79-400d-480b-b497-e4564232d8e8",
+      "title": "asdasd",
+      "amount": "123",
+      "category": "Alimentação",
+      "type": "Receita",
+      "date": "2022-07-28"
+    },
+    {
+      "id": "76d773ba-c64b-4368-b72e-305130b4447d",
+      "title": "lll",
+      "amount": "22",
+      "category": "Alimentação",
+      "type": "Receita",
+      "date": "2022-07-13"
+    },
+    {
+      "id": "8d898317-3f4b-461f-b566-50d33b94d576",
+      "title": "Juros",
+      "amount": "987.50",
+      "category": "Alimentação",
+      "type": "Receita",
+      "date": "2022-07-19"
+    },
+    {
+      "id": "0e88e60d-2aca-4265-9d43-b1e6bd5fc8f1",
+      "title": "Conta 1",
+      "amount": "125",
+      "category": "Saúde",
+      "type": "Despesa",
+      "date": "2022-07-23"
+    },
+    {
+      "id": "9629f1a6-e44e-437c-9868-71dd9a6256ed",
+      "title": "qweqwe",
+      "amount": "1233",
+      "category": "Alimentação",
+      "type": "Despesa",
+      "date": "2022-07-28"
+    },
+    {
+      "id": "1a1ebe1b-9665-4f6a-9d35-b2db90a8186e",
+      "title": "asdasasdasd",
+      "amount": "254",
+      "category": "Alimentação",
+      "type": "Receita",
+      "date": "2022-07-29"
+    },
+    {
+      "id": "29edf905-69d4-4e43-84ab-184b7ad38982",
+      "title": "teste",
+      "amount": "1000",
+      "category": "Alimentação",
+      "type": "Receita",
+      "date": "2022-07-30"
+    },
+    {
+      "id": "7114f1a9-d958-4880-89aa-1d2520340d95",
+      "title": "teste",
+      "amount": "2.50",
+      "category": "Alimentação",
+      "type": "Receita",
+      "date": "2022-07-01"
+    },
+    {
+      "id": "9a205a8e-ed58-4126-995c-478f883f4732",
+      "title": "teste21",
+      "amount": "150",
+      "category": "Moradia",
+      "type": "Receita",
+      "date": "2022-07-21"
+    }
+  ]
 }

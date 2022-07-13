@@ -12,10 +12,7 @@ export default function Form({ onSubmitData = null }) {
 
   return (
     <form className="flex flex-col" onSubmit={handleSubmit(onSubmit)}>
-      <label
-        className="font-poppins text-zinc-50 mb-1 mt-2"
-        htmlFor="type"
-      >
+      <label className="font-poppins text-zinc-50 mb-1 mt-2" htmlFor="type">
         Tipo
       </label>
       <select

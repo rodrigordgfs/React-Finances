@@ -1,4 +1,3 @@
-import styles from './index.module.css'
 import Logo from '../../Components/Logo'
 import User from '../User'
 

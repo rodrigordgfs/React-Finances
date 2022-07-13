@@ -4,6 +4,7 @@ export const TYPES_OPTIONS = [
 ];
 
 export const CATEGORIES_OPTIONS = [
+  { id: "80250c05-2f93-4500-b6e9-ac81cfcd4029", name: "Salário" },
   { id: "03249807-86c2-49e7-a4a7-d0feca7660b7", name: "Alimentação" },
   { id: "5d3cfbbc-d154-4d86-b003-92b29a9f7597", name: "Lazer" },
   { id: "ccb20bc2-31bf-4af3-9049-7437d46557da", name: "Transporte" },

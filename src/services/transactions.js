@@ -5,7 +5,7 @@ class TransactionsService extends Axios {
     super({
       url: "transactions",
       config: {
-        baseURL: "http://localhost:8888/",
+        baseURL: "https://capable-fish-meat.glitch.me/",
       },
     });
   }

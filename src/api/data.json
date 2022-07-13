@@ -1,36 +1,3 @@
 {
-  "transactions": [
-    {
-      "id": "41b08b38-4a1e-4f0d-9887-1b893136ba56",
-      "amount": "4658.78",
-      "title": "Pagamento da empresa X",
-      "category": "Alimentação",
-      "type": "Receita",
-      "date": "2022-06-01"
-    },
-    {
-      "id": "29edf905-69d4-4e43-84ab-184b7ad38982",
-      "title": "Salário",
-      "amount": "1001.78",
-      "category": "Alimentação",
-      "type": "Receita",
-      "date": "2022-07-30"
-    },
-    {
-      "id": "8f5ba5c6-71a9-401f-8443-478f365beb18",
-      "title": "Salário",
-      "amount": "1542",
-      "category": "Lazer",
-      "type": "Receita",
-      "date": "2021-11-11"
-    },
-    {
-      "id": "471786ec-1eeb-4b26-a8d2-105e3eda1e67",
-      "title": "teste",
-      "amount": "3514.75",
-      "category": "Saúde",
-      "type": "Despesa",
-      "date": "2022-06-09"
-    }
-  ]
+  "transactions": []
 }

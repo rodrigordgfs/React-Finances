@@ -2,22 +2,12 @@ import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { CATEGORIES_OPTIONS, TYPES_OPTIONS } from "../../utils/constants";
 
-export default function Form({
-  onSubmitData = null,
-  selectedTransaction,
-  deleteTransaction,
-}) {
+export default function Form({ onSubmitData = null, selectedTransaction }) {
   const { register, handleSubmit, setValue } = useForm();
 
   function onSubmit(data) {
     if (onSubmitData) {
       onSubmitData(data);
-    }
-  }
-
-  function handleOnDeleteTransaction() {
-    if (deleteTransaction) {
-      deleteTransaction();
     }
   }
 
@@ -105,14 +95,6 @@ export default function Form({
         {...register("date")}
       />
       <div className="flex flex-row justify-end my-4 gap-4">
-        {selectedTransaction && (
-          <button
-            onClick={handleOnDeleteTransaction}
-            className="bg-red-500 hover:bg-red-600 text-zinc-50 transition-all px-6 py-2 rounded shadow font-poppin font-semibold"
-          >
-            Excluir
-          </button>
-        )}
         <input
           type="reset"
           className="bg-blue-500 hover:bg-blue-600 text-zinc-50 transition-all px-6 py-2 rounded shadow font-poppin font-semibold"

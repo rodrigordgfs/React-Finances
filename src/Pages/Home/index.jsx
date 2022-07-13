@@ -64,8 +64,9 @@ function App() {
     getTransactions();
   }, [datePicked]);
 
-  function handleNewTransaction() {
+  function handleUpdateTransactionsList() {
     getTransactions();
+    console.log(4);
   }
 
   function handleDateOptionChange(date) {
@@ -85,7 +86,7 @@ function App() {
         <>
           <Cards revenue={revenue} expense={expense} balance={balance} />
           <Options
-            handleNewTransaction={handleNewTransaction}
+            handleNewTransaction={handleUpdateTransactionsList}
             date={datePicked}
             onDateChange={handleDateOptionChange}
             selectedTransaction={selectedTransaction}
@@ -94,6 +95,7 @@ function App() {
           <Transactions
             transactions={transactions}
             onSelectTransaction={handleTransactionSelected}
+            onDeleteTransactions={handleUpdateTransactionsList}
           />
         </>
       )}

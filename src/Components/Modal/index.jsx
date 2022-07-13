@@ -51,17 +51,6 @@ export default function Modal({
     }
   }
 
-  function handleDeleteTransaction() {
-    TransactionService.delete(selectedTransaction.id)
-      .then(() => {
-        successMessage("Transação excluída com sucesso!");
-        handleClose(true);
-      })
-      .catch(({ message }) => {
-        errorMessage(message);
-      });
-  }
-
   return (
     <ReactModal
       isOpen={isOpen}
@@ -80,7 +69,6 @@ export default function Modal({
       <Form
         onSubmitData={handleSubmitData}
         selectedTransaction={selectedTransaction}
-        deleteTransaction={handleDeleteTransaction}
       />
     </ReactModal>
   );

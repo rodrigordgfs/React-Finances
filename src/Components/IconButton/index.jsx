@@ -1,6 +1,11 @@
 import React from "react";
 
-export default function IconButton({ children, onButtonClick = null }) {
+export default function IconButton({
+  children,
+  color = "bg-zinc-800",
+  hover = "bg-zinc-700",
+  onButtonClick = null,
+}) {
   function handleButtonClick() {
     if (onButtonClick) {
       onButtonClick();
@@ -10,7 +15,7 @@ export default function IconButton({ children, onButtonClick = null }) {
   return (
     <div
       onClick={handleButtonClick}
-      className="bg-zinc-800 hover:bg-zinc-700 transition-all h-14 w-14 flex items-center justify-center rounded shadow cursor-pointer"
+      className={`${color} hover:${hover} transition-all h-14 w-14 flex items-center justify-center rounded shadow cursor-pointer`}
     >
       {children}
     </div>

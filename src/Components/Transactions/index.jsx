@@ -5,11 +5,19 @@ import Transaction from "../Transaction";
 export default function Transactions({
   transactions = [],
   onSelectTransaction,
+  onDeleteTransactions,
 }) {
   const quantityTransactions = () => transactions.length;
 
   function handleSelectTransaction(data) {
     onSelectTransaction(data);
+  }
+
+  function handleDeleteTransactions() {
+    if (onDeleteTransactions) {
+      onDeleteTransactions();
+      console.log(3);
+    }
   }
 
   return (
@@ -42,6 +50,7 @@ export default function Transactions({
                     key={transaction.id}
                     data={transaction}
                     onSelectTransaction={handleSelectTransaction}
+                    onDeleteTransactions={handleDeleteTransactions}
                   />
                 );
               })}

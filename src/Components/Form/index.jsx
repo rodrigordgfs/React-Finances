@@ -1,14 +1,35 @@
+import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { CATEGORIES_OPTIONS, TYPES_OPTIONS } from "../../utils/constants";
 
-export default function Form({ onSubmitData = null }) {
-  const { register, handleSubmit } = useForm();
+export default function Form({
+  onSubmitData = null,
+  selectedTransaction,
+  deleteTransaction,
+}) {
+  const { register, handleSubmit, setValue } = useForm();
 
   function onSubmit(data) {
     if (onSubmitData) {
       onSubmitData(data);
     }
   }
+
+  function handleOnDeleteTransaction() {
+    if (deleteTransaction) {
+      deleteTransaction();
+    }
+  }
+
+  useEffect(() => {
+    if (selectedTransaction) {
+      setValue("type", selectedTransaction.type);
+      setValue("category", selectedTransaction.category);
+      setValue("title", selectedTransaction.title);
+      setValue("value", selectedTransaction.amount);
+      setValue("date", selectedTransaction.date);
+    }
+  }, [selectedTransaction]);
 
   return (
     <form className="flex flex-col" onSubmit={handleSubmit(onSubmit)}>
@@ -84,9 +105,14 @@ export default function Form({ onSubmitData = null }) {
         {...register("date")}
       />
       <div className="flex flex-row justify-end my-4 gap-4">
-        {/* <button className="bg-red-500 hover:bg-red-600 text-zinc-50 transition-all px-6 py-2 rounded shadow font-poppin font-semibold">
-          Excluir
-        </button> */}
+        {selectedTransaction && (
+          <button
+            onClick={handleOnDeleteTransaction}
+            className="bg-red-500 hover:bg-red-600 text-zinc-50 transition-all px-6 py-2 rounded shadow font-poppin font-semibold"
+          >
+            Excluir
+          </button>
+        )}
         <input
           type="reset"
           className="bg-blue-500 hover:bg-blue-600 text-zinc-50 transition-all px-6 py-2 rounded shadow font-poppin font-semibold"

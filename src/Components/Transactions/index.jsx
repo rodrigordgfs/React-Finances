@@ -2,8 +2,15 @@ import { AiOutlinePlus } from "react-icons/ai";
 import { HiOutlineEmojiSad } from "react-icons/hi";
 import Transaction from "../Transaction";
 
-export default function Transactions({ transactions = [] }) {
+export default function Transactions({
+  transactions = [],
+  onSelectTransaction,
+}) {
   const quantityTransactions = () => transactions.length;
+
+  function handleSelectTransaction(data) {
+    onSelectTransaction(data);
+  }
 
   return (
     <div className="flex flex-col max-w-5xl my-0 mx-auto px-2 pt-6">
@@ -30,15 +37,11 @@ export default function Transactions({ transactions = [] }) {
             </p>
             <div className="space-y-5 pb-4">
               {transactions.map((transaction) => {
-                const { amount, category, date, id, title, type } = transaction;
                 return (
                   <Transaction
-                    key={id}
-                    title={title}
-                    category={category}
-                    type={type}
-                    value={amount}
-                    date={date}
+                    key={transaction.id}
+                    data={transaction}
+                    onSelectTransaction={handleSelectTransaction}
                   />
                 );
               })}

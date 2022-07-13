@@ -5,11 +5,16 @@ import "./index.css";
 import Form from "../Form";
 import { v4 as uuidv4 } from "uuid";
 import TransactionService from "../../services/transactions";
-import { successMessage } from "../../utils/toastify";
+import { errorMessage, successMessage } from "../../utils/toastify";
 
 ReactModal.setAppElement("#root");
 
-export default function Modal({ isOpen, onRequestClose, title }) {
+export default function Modal({
+  isOpen,
+  onRequestClose,
+  title,
+  selectedTransaction,
+}) {
   function handleClose(newTransaction = false) {
     if (onRequestClose) {
       onRequestClose(newTransaction);
@@ -18,16 +23,38 @@ export default function Modal({ isOpen, onRequestClose, title }) {
 
   function handleSubmitData(data) {
     const body = {
-      id: uuidv4(),
+      id: selectedTransaction ? selectedTransaction.id : uuidv4(),
       title: data.title,
       amount: data.value,
       category: data.category,
       type: data.type,
       date: data.date,
     };
-    TransactionService.post(body)
+    if (selectedTransaction) {
+      TransactionService.patch(selectedTransaction.id, body)
+        .then(() => {
+          successMessage("Transação atualizada com sucesso!");
+          handleClose(true);
+        })
+        .catch(({ message }) => {
+          errorMessage(message);
+        });
+    } else {
+      TransactionService.post(body)
+        .then(() => {
+          successMessage("Transação adicionada com sucesso!");
+          handleClose(true);
+        })
+        .catch(({ message }) => {
+          errorMessage(message);
+        });
+    }
+  }
+
+  function handleDeleteTransaction() {
+    TransactionService.delete(selectedTransaction.id)
       .then(() => {
-        successMessage("Transação adicionada com sucesso!");
+        successMessage("Transação excluída com sucesso!");
         handleClose(true);
       })
       .catch(({ message }) => {
@@ -50,7 +77,11 @@ export default function Modal({ isOpen, onRequestClose, title }) {
           <AiOutlineClose size={28} color="white" />
         </IconButton>
       </div>
-      <Form onSubmitData={handleSubmitData} />
+      <Form
+        onSubmitData={handleSubmitData}
+        selectedTransaction={selectedTransaction}
+        deleteTransaction={handleDeleteTransaction}
+      />
     </ReactModal>
   );
 }

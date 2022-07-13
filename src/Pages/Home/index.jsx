@@ -15,6 +15,7 @@ function App() {
   const [expense, setExpense] = useState(0);
   const [balance, setBalance] = useState(0);
   const [datePicked, setDatePicked] = useState(moment().format("YYYY-MM"));
+  const [selectedTransaction, setSelectedTransaction] = useState(null);
 
   function getRevenue(data) {
     return data
@@ -71,6 +72,10 @@ function App() {
     setDatePicked(moment(date).format("YYYY-MM"));
   }
 
+  function handleTransactionSelected(data) {
+    setSelectedTransaction(data);
+  }
+
   return (
     <div className="App bg-zinc-900 h-fit">
       <Header />
@@ -83,8 +88,13 @@ function App() {
             handleNewTransaction={handleNewTransaction}
             date={datePicked}
             onDateChange={handleDateOptionChange}
+            selectedTransaction={selectedTransaction}
+            handleResetSelectedTransaction={() => setSelectedTransaction(null)}
           />
-          <Transactions transactions={transactions} />
+          <Transactions
+            transactions={transactions}
+            onSelectTransaction={handleTransactionSelected}
+          />
         </>
       )}
     </div>

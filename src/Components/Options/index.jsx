@@ -2,14 +2,25 @@ import DatePicker from "../DatePicker";
 import IconButton from "../IconButton";
 import { AiFillPrinter, AiOutlinePlusCircle } from "react-icons/ai";
 import Modal from "../Modal";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function Options({
   handleNewTransaction = null,
   date,
   onDateChange,
+  selectedTransaction,
+  handleResetSelectedTransaction,
 }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const modalTitle = () =>
+    selectedTransaction ? "EDITAR TRANSAÇÃO" : "NOVA TRANSAÇÃO";
+
+  useEffect(() => {
+    if (selectedTransaction) {
+      setIsModalOpen(true);
+    }
+  }, [selectedTransaction]);
 
   function handleOpenModal() {
     setIsModalOpen(true);
@@ -20,6 +31,7 @@ export default function Options({
     if (newTransaction) {
       handleNewTransaction();
     }
+    handleResetSelectedTransaction();
   }
 
   function handleOnChageDate(date) {
@@ -40,9 +52,10 @@ export default function Options({
         </IconButton>
       </div>
       <Modal
-        title="NOVA TRANSAÇÃO"
+        title={modalTitle()}
         isOpen={isModalOpen}
         onRequestClose={handleCloseModal}
+        selectedTransaction={selectedTransaction}
       />
     </div>
   );

@@ -1,6 +1,6 @@
 export const TYPES_OPTIONS = [
-  { id: "e3f20d4a-0e67-49e4-a815-66b54bab11f2", name: "Receita" },
-  { id: "322b9fc7-fa27-47e8-94f6-94109504fa67", name: "Despesa" },
+  { id: "Receita", name: "Receita" },
+  { id: "Despesa", name: "Despesa" },
 ];
 
 export const CATEGORIES_OPTIONS = [

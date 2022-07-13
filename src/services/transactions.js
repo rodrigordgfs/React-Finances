@@ -1,11 +1,11 @@
-import Axios from '../adapters/axios'
+import Axios from "../adapters/axios";
 
 class TransactionsService extends Axios {
   constructor() {
     super({
       url: "transactions",
       config: {
-        baseURL: "https://api-finance-react.glitch.me/",
+        baseURL: "http://localhost:8888/",
       },
     });
   }

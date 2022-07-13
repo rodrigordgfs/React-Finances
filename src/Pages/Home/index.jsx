@@ -5,7 +5,8 @@ import Transactions from "../../Components/Transactions";
 import { useEffect, useState } from "react";
 import TransactionsService from "../../services/transactions";
 import Loading from "../../Components/Loading";
-import { errorMessage } from '../../utils/toastify'
+import { errorMessage } from "../../utils/toastify";
+import moment from "moment";
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -16,26 +17,55 @@ function App() {
 
   function getRevenue(data) {
     return data
-      .filter((transaction) => transaction.type === "revenue")
-      .reduce((acc, transaction) => acc + transaction.amount, 0);
+      .filter((transaction) => transaction.type === "Receita")
+      .reduce(
+        (acc, transaction) => Number(acc) + Number(transaction.amount),
+        0
+      );
   }
+
   function getExpense(data) {
     return data
-      .filter((transaction) => transaction.type === "expense")
-      .reduce((acc, transaction) => acc + transaction.amount, 0);
+      .filter((transaction) => transaction.type === "Despesa")
+      .reduce(
+        (acc, transaction) => Number(acc) + Number(transaction.amount),
+        0
+      );
+  }
+
+  function getTransactions() {
+    setLoading(true);
+    TransactionsService.get()
+      .then(({ data }) => {
+        const currentyDate = moment().format("YYYY-MM");
+        const monthTransactions = data
+          .filter(
+            (transaction) =>
+              moment(transaction.date).format("YYYY-MM") === currentyDate
+          )
+          .sort((a, b) => {
+            a.date - b.date;
+          });
+        setTransasctions(monthTransactions);
+        setRevenue(getRevenue(monthTransactions));
+        setExpense(getExpense(monthTransactions));
+        setBalance(
+          getRevenue(monthTransactions) - getExpense(monthTransactions)
+        );
+        setLoading(false);
+      })
+      .catch(({ message }) => {
+        errorMessage(message);
+      });
   }
 
   useEffect(() => {
-    TransactionsService.get().then(({ data }) => {
-      setTransasctions(data);
-      setRevenue(getRevenue(data));
-      setExpense(getExpense(data));
-      setBalance(getRevenue(data) - getExpense(data));
-      setLoading(false);
-    }).catch(({message}) => {
-      errorMessage(message)
-    });
+    getTransactions();
   }, []);
+
+  function handleNewTransaction() {
+    getTransactions();
+  }
 
   return (
     <div className="App bg-zinc-900 h-fit">
@@ -45,7 +75,7 @@ function App() {
       ) : (
         <>
           <Cards revenue={revenue} expense={expense} balance={balance} />
-          <Options />
+          <Options handleNewTransaction={handleNewTransaction} />
           <Transactions transactions={transactions} />
         </>
       )}

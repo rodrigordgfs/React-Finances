@@ -14,7 +14,7 @@ export default function Transaction({ title, value, category, type, date }) {
       className={`bg-zinc-900 hover:bg-zinc-800 transition-all cursor-pointer flex-col items-center rounded px-2 py-4 space-y-1 outline outline-offset-2 ${borderColor()}`}
     >
       <div className="flex flex-row items-center justify-between">
-        <p className="font-poppins font-semibold text-white">{title}</p>
+        <p className="font-poppins font-semibold text-zinc-50">{title}</p>
         <p className={`font-poppins ${textColor()}`}>{ammount()}</p>
       </div>
       <div className="flex flex-row items-center justify-between">

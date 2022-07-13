@@ -15,7 +15,7 @@ export default function Cards() {
       {loading ? (
         <CardsLoading />
       ) : (
-        <div className="text-white flex flex-col max-w-5xl my-0 mx-auto px-2">
+        <div className="text-zinc-50 flex flex-col max-w-5xl my-0 mx-auto px-2">
           <div className="flex md:flex-row flex-col items-center gap-5">
             <Card
               title="Receita"

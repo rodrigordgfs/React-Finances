@@ -32,13 +32,13 @@ export default function Transactions() {
           <div className="flex flex-col max-w-5xl my-0 mx-auto px-2 pt-6">
             <div className="flex flex-row items-center space-x-2">
               <AiOutlinePlus color="white" />
-              <p className="font-poppins text-white">Minhas Transações</p>
+              <p className="font-poppins text-zinc-50">Minhas Transações</p>
             </div>
             <div className="bg-zinc-800 rounded shadow my-4 px-4 pt-4 pb-8 flex flex-col gap-4">
               {quantityTransactions() <= 0 && (
                 <div className="flex flex-col items-center justify-center">
                   <HiOutlineEmojiSad size={42} color="white" />
-                  <p className="font-poppins text-white fonr-semibold text-lg">
+                  <p className="font-poppins text-zinc-50 fonr-semibold text-lg">
                     Nenhum item foi encontrado neste mês!
                   </p>
                 </div>
@@ -47,7 +47,7 @@ export default function Transactions() {
                 <>
                   <p className="font-poppins text-zinc-300 text-center">
                     Nesse mês foi cadastrado{" "}
-                    <span className="font-semibold text-white">
+                    <span className="font-semibold text-zinc-50">
                       {quantityTransactions()}
                     </span>{" "}
                     itens.

@@ -14,6 +14,7 @@ function App() {
   const [revenue, setRevenue] = useState(0);
   const [expense, setExpense] = useState(0);
   const [balance, setBalance] = useState(0);
+  const [datePicked, setDatePicked] = useState(moment().format("YYYY-MM"));
 
   function getRevenue(data) {
     return data
@@ -37,11 +38,10 @@ function App() {
     setLoading(true);
     TransactionsService.get()
       .then(({ data }) => {
-        const currentyDate = moment().format("YYYY-MM");
         const monthTransactions = data
           .filter(
             (transaction) =>
-              moment(transaction.date).format("YYYY-MM") === currentyDate
+              moment(transaction.date).format("YYYY-MM") === datePicked
           )
           .sort((a, b) => {
             a.date - b.date;
@@ -61,10 +61,14 @@ function App() {
 
   useEffect(() => {
     getTransactions();
-  }, []);
+  }, [datePicked]);
 
   function handleNewTransaction() {
     getTransactions();
+  }
+
+  function handleDateOptionChange(date) {
+    setDatePicked(moment(date).format("YYYY-MM"));
   }
 
   return (
@@ -75,7 +79,11 @@ function App() {
       ) : (
         <>
           <Cards revenue={revenue} expense={expense} balance={balance} />
-          <Options handleNewTransaction={handleNewTransaction} />
+          <Options
+            handleNewTransaction={handleNewTransaction}
+            date={datePicked}
+            onDateChange={handleDateOptionChange}
+          />
           <Transactions transactions={transactions} />
         </>
       )}

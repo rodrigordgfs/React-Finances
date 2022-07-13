@@ -119,6 +119,22 @@
       "category": "Moradia",
       "type": "Receita",
       "date": "2022-07-21"
+    },
+    {
+      "id": "8f5ba5c6-71a9-401f-8443-478f365beb18",
+      "title": "Salário",
+      "amount": "1542",
+      "category": "Lazer",
+      "type": "Receita",
+      "date": "2021-11-11"
+    },
+    {
+      "id": "471786ec-1eeb-4b26-a8d2-105e3eda1e67",
+      "title": "teste",
+      "amount": "3514.75",
+      "category": "Saúde",
+      "type": "Despesa",
+      "date": "2022-06-09"
     }
   ]
 }

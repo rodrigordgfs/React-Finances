@@ -11,7 +11,7 @@ export default function Transactions({ transactions = [] }) {
         <AiOutlinePlus color="white" />
         <p className="font-poppins text-white">Minhas Transações</p>
       </div>
-      <div className="bg-zinc-800 rounded shadow my-4 px-4 pt-4 pb-8 flex flex-col gap-4">
+      <div className="bg-zinc-800 rounded shadow my-4 px-4 py-4 flex flex-col gap-4">
         {quantityTransactions() <= 0 ? (
           <div className="flex flex-col items-center justify-center">
             <HiOutlineEmojiSad size={42} color="white" />
@@ -28,7 +28,7 @@ export default function Transactions({ transactions = [] }) {
               </span>{" "}
               itens.
             </p>
-            <div className="space-y-5">
+            <div className="space-y-5 pb-4">
               {transactions.map((transaction) => {
                 const { amount, category, date, id, title, type } = transaction;
                 return (

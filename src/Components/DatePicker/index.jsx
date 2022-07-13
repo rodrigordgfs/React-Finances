@@ -2,24 +2,29 @@ import { IoMdArrowDropleft, IoMdArrowDropright } from "react-icons/io";
 import moment from "moment";
 import { useState } from "react";
 
-export default function DatePicker() {
-  const [currentDate, setCurrentDate] = useState(moment());
+export default function DatePicker({ currentDate, onDateChange }) {
   const [date, setDate] = useState(
     moment(currentDate).format("MMMM [de] YYYY")
   );
 
+  function handleOnChange(data) {
+    if (onDateChange) {
+      onDateChange(data);
+    }
+  }
+
   function handleIncreaseMonth() {
-    setCurrentDate(moment(currentDate).add(1, "month"));
-    setDate((currentDate) =>
-      moment(currentDate).add(1, "month").format("MMMM [de] YYYY")
+    setDate((previousDate) =>
+      moment(previousDate).add(1, "month").format("MMMM [de] YYYY")
     );
+    handleOnChange(moment(date).add(1, "month"));
   }
 
   function handleDecreaseMonth() {
-    setCurrentDate(moment(currentDate).subtract(1, "month"));
-    setDate((currentDate) =>
-      moment(currentDate).subtract(1, "month").format("MMMM [de] YYYY")
+    setDate((previousDate) =>
+      moment(previousDate).subtract(1, "month").format("MMMM [de] YYYY")
     );
+    handleOnChange(moment(date).subtract(1, "month"));
   }
 
   return (

@@ -17,6 +17,7 @@ import {
   TEXT_POSITIVE_COLOR,
   TEXT_PRIMARY_COLOR,
   TEXT_SECONDARY_COLOR,
+  TERTIARY_COLOR,
   WHITE,
 } from "../../utils/colors";
 
@@ -61,7 +62,7 @@ export default function Transaction({
 
   return (
     <div
-      className={`${PRIMARY_COLOR} transition-all cursor-pointer flex flex-row items-center rounded px-2 py-4 space-y-1 outline outline-offset-2 ${borderColor()}`}
+      className={`${TERTIARY_COLOR} transition-all cursor-pointer flex flex-row items-center rounded px-2 py-4 space-y-1 outline outline-offset-2 ${borderColor()}`}
     >
       <div className="flex-col w-full">
         <div className="flex flex-row items-center justify-between">

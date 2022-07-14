@@ -4,6 +4,7 @@ import { useState } from "react";
 import {
   SECONDARY_COLOR,
   SECONDARY_COLOR_HOVER,
+  TEXT_SECONDARY_COLOR,
   WHITE,
 } from "../../utils/colors";
 
@@ -42,7 +43,7 @@ export default function DatePicker({ currentDate, onDateChange }) {
       >
         <IoMdArrowDropleft color={WHITE} size={28} />
       </button>
-      <p className="flex-1 font-poppins text-zinc-300 text-center">{date}</p>
+      <p className={`flex-1 font-poppins ${TEXT_SECONDARY_COLOR} text-center`}>{date}</p>
       <button
         onClick={handleIncreaseMonth}
         className={`mr-4 p-2 rounded-full cursor-pointer ${SECONDARY_COLOR_HOVER} transition-all`}

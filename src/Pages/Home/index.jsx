@@ -78,7 +78,7 @@ export default function App() {
   };
 
   return (
-    <div className={`App ${PRIMARY_COLOR} h-fit`}>
+    <div className={`App ${PRIMARY_COLOR} h-screen`}>
       <Header />
       {loading ? (
         <Loading />

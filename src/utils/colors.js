@@ -12,7 +12,7 @@ const INFO_COLOR_HOVER = "hover:bg-blue-600 dark:hover:bg-blue-700";
 const TEXT_POSITIVE_COLOR = "text-green-500 dark:text-green-500";
 const TEXT_NEGATIVE_COLOR = "text-red-500 dark:text-red-500";
 const BORDER_OUTLINE_POSITIVE_COLOR =
-  "outline-green-400 dark:outline-green-500";
+    "outline-green-400 dark:outline-green-500";
 const BORDER_OUTLINE_NEGATIVE_COLOR = "outline-red-400 dark:outline-red-500";
 const WHITE = "black";
 

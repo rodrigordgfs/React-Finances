@@ -1,6 +1,6 @@
-const PRIMARY_COLOR = "bg-zinc-900";
-const SECONDARY_COLOR = "bg-zinc-800";
-const SECONDARY_COLOR_HOVER = "hover:bg-zinc-700";
+const PRIMARY_COLOR = "bg-zinc-300 dark:bg-zinc-900";
+const SECONDARY_COLOR = "bg-zinc-200 dark:bg-zinc-800";
+const SECONDARY_COLOR_HOVER = "hover:bg-zinc-100 dark:hover:bg-zinc-700";
 const TEXT_PRIMARY_COLOR = "text-zinc-50";
 const TEXT_SECONDARY_COLOR = "text-zinc-300";
 const POSITIVE_COLOR = "bg-green-600";

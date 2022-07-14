@@ -1,5 +1,5 @@
 const PRIMARY_COLOR = "bg-zinc-100 dark:bg-zinc-900";
-const SECONDARY_COLOR = "bg-zinc-300 dark:bg-zinc-800";
+const SECONDARY_COLOR = "bg-zinc-400 dark:bg-zinc-800";
 const SECONDARY_COLOR_HOVER = "hover:bg-zinc-500 dark:hover:bg-zinc-700";
 const TEXT_PRIMARY_COLOR = "text-zinc-900 dark:text-zinc-50";
 const TEXT_SECONDARY_COLOR = "text-zinc-900 dark:text-zinc-300";
@@ -14,7 +14,7 @@ const TEXT_NEGATIVE_COLOR = "text-red-500 dark:text-red-500";
 const BORDER_OUTLINE_POSITIVE_COLOR =
   "outline-green-400 dark:outline-green-500";
 const BORDER_OUTLINE_NEGATIVE_COLOR = "outline-red-400 dark:outline-red-500";
-const WHITE = "black";
+const WHITE = "white";
 
 export {
   PRIMARY_COLOR,

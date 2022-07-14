@@ -5,6 +5,19 @@ import { AiFillDelete } from "react-icons/ai";
 import { MdModeEditOutline } from "react-icons/md";
 import TransactionService from "../../services/transactions";
 import { errorMessage, successMessage } from "../../utils/toastify";
+import {
+  BORDER_OUTLINE_NEGATIVE_COLOR,
+  BORDER_OUTLINE_POSITIVE_COLOR,
+  INFO_COLOR,
+  INFO_COLOR_HOVER,
+  NEGATIVE_COLOR,
+  NEGATIVE_COLOR_HOVER,
+  PRIMARY_COLOR,
+  TEXT_POSITIVE_COLOR,
+  TEXT_PRIMARY_COLOR,
+  TEXT_SECONDARY_COLOR,
+  WHITE,
+} from "../../utils/colors";
 
 export default function Transaction({
   data,
@@ -14,9 +27,12 @@ export default function Transaction({
   const { amount, category, date, id, title, type } = data;
 
   const isRecept = () => type === "Receita";
-  const textColor = () => (isRecept() ? "text-green-500" : "text-red-500");
+  const textColor = () =>
+    isRecept() ? `${TEXT_POSITIVE_COLOR}` : `${TEXT_NEGATIVE_COLOR}`;
   const borderColor = () =>
-    isRecept() ? "outline-green-500" : "outline-red-500";
+    isRecept()
+      ? `${BORDER_OUTLINE_POSITIVE_COLOR}`
+      : `${BORDER_OUTLINE_NEGATIVE_COLOR}`;
   const value = () =>
     formatedMoney(isRecept() ? Number(amount) : Number(amount) * -1);
   const formatedDate = () => moment(date).format("DD/MM/YYYY");
@@ -44,32 +60,36 @@ export default function Transaction({
 
   return (
     <div
-      className={`bg-zinc-900 transition-all cursor-pointer flex flex-row items-center rounded px-2 py-4 space-y-1 outline outline-offset-2 ${borderColor()}`}
+      className={`${PRIMARY_COLOR} transition-all cursor-pointer flex flex-row items-center rounded px-2 py-4 space-y-1 outline outline-offset-2 ${borderColor()}`}
     >
       <div className="flex-col w-full">
         <div className="flex flex-row items-center justify-between">
-          <p className="font-poppins font-semibold text-zinc-50">{title}</p>
+          <p className={`font-poppins font-semibold ${TEXT_PRIMARY_COLOR}`}>
+            {title}
+          </p>
           <p className={`font-poppins ${textColor()}`}>{value()}</p>
         </div>
-        <div className="flex flex-row items-center justify-between">
-          <p className="font-poppins text-zinc-400">{category}</p>
-          <p className="font-poppins text-zinc-400">{formatedDate()}</p>
+        <div
+          className={`font-poppins ${TEXT_SECONDARY_COLOR} flex flex-row items-center justify-between`}
+        >
+          <p>{category}</p>
+          <p>{formatedDate()}</p>
         </div>
       </div>
       <div className="flex flex-row gap-2 pl-4">
         <IconButton
           onButtonClick={handleOnClickTransaction}
-          color="bg-blue-800"
-          hover="bg-blue-700"
+          color={INFO_COLOR}
+          hover={INFO_COLOR_HOVER}
         >
-          <MdModeEditOutline color="white" size={20} />
+          <MdModeEditOutline color={WHITE} size={20} />
         </IconButton>
         <IconButton
           onButtonClick={handleOnDeleteTransaction}
-          color="bg-red-800"
-          hover="bg-red-700"
+          color={NEGATIVE_COLOR}
+          hover={NEGATIVE_COLOR_HOVER}
         >
-          <AiFillDelete color="white" size={20} />
+          <AiFillDelete color={WHITE} size={20} />
         </IconButton>
       </div>
     </div>

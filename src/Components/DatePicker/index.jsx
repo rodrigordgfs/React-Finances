@@ -1,6 +1,11 @@
 import { IoMdArrowDropleft, IoMdArrowDropright } from "react-icons/io";
 import moment from "moment";
 import { useState } from "react";
+import {
+  SECONDARY_COLOR,
+  SECONDARY_COLOR_HOVER,
+  WHITE,
+} from "../../utils/colors";
 
 export default function DatePicker({ currentDate, onDateChange }) {
   const [date, setDate] = useState(
@@ -28,19 +33,21 @@ export default function DatePicker({ currentDate, onDateChange }) {
   };
 
   return (
-    <div className="bg-zinc-800 flex flex-row flex-1 items-center rounded h-14 shadow">
+    <div
+      className={`${SECONDARY_COLOR} flex flex-row flex-1 items-center rounded h-14 shadow`}
+    >
       <button
         onClick={handleDecreaseMonth}
-        className="ml-4 p-2 cursor-pointer rounded-full hover:bg-zinc-700 transition-all"
+        className={`ml-4 p-2 cursor-pointer rounded-full ${SECONDARY_COLOR_HOVER} transition-all`}
       >
-        <IoMdArrowDropleft color="white" size={28} />
+        <IoMdArrowDropleft color={WHITE} size={28} />
       </button>
       <p className="flex-1 font-poppins text-zinc-300 text-center">{date}</p>
       <button
         onClick={handleIncreaseMonth}
-        className="mr-4 p-2 rounded-full cursor-pointer hover:bg-zinc-700 transition-all"
+        className={`mr-4 p-2 rounded-full cursor-pointer ${SECONDARY_COLOR_HOVER} transition-all`}
       >
-        <IoMdArrowDropright size={28} color="white" />
+        <IoMdArrowDropright size={28} color={WHITE} />
       </button>
     </div>
   );

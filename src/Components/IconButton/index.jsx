@@ -1,9 +1,11 @@
 import React from "react";
+import { SECONDARY_COLOR, SECONDARY_COLOR_HOVER } from "../../utils/colors";
 
 export default function IconButton({
   children,
-  color = "bg-zinc-800",
-  hover = "bg-zinc-700",
+  size = 14,
+  color = SECONDARY_COLOR,
+  hover = SECONDARY_COLOR_HOVER,
   onButtonClick = null,
 }) {
   const handleButtonClick = () => {
@@ -15,7 +17,7 @@ export default function IconButton({
   return (
     <div
       onClick={handleButtonClick}
-      className={`${color} hover:${hover} transition-all h-14 w-14 flex items-center justify-center rounded shadow cursor-pointer`}
+      className={`${color} ${hover} transition-all h-${size} w-${size} flex items-center justify-center rounded shadow cursor-pointer`}
     >
       {children}
     </div>

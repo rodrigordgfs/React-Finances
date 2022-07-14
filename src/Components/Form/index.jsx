@@ -1,5 +1,12 @@
 import { useEffect } from "react";
 import { useForm } from "react-hook-form";
+import {
+  INFO_COLOR,
+  INFO_COLOR_HOVER,
+  POSITIVE_COLOR,
+  POSITIVE_COLOR_HOVER,
+  TEXT_PRIMARY_COLOR,
+} from "../../utils/colors";
 import { CATEGORIES_OPTIONS, TYPES_OPTIONS } from "../../utils/constants";
 
 export default function Form({ onSubmitData = null, selectedTransaction }) {
@@ -23,7 +30,10 @@ export default function Form({ onSubmitData = null, selectedTransaction }) {
 
   return (
     <form className="flex flex-col" onSubmit={handleSubmit(onSubmit)}>
-      <label className="font-poppins text-zinc-50 mb-1 mt-2" htmlFor="type">
+      <label
+        className={`font-poppins ${TEXT_PRIMARY_COLOR} mb-1 mt-2`}
+        htmlFor="type"
+      >
         Tipo
       </label>
       <select
@@ -41,7 +51,10 @@ export default function Form({ onSubmitData = null, selectedTransaction }) {
           );
         })}
       </select>
-      <label className="font-poppins text-zinc-50 mb-1 pt-2" htmlFor="title">
+      <label
+        className={`font-poppins ${TEXT_PRIMARY_COLOR} mb-1 pt-2`}
+        htmlFor="title"
+      >
         Descrição
       </label>
       <input
@@ -52,7 +65,10 @@ export default function Form({ onSubmitData = null, selectedTransaction }) {
         maxLength={30}
         required
       />
-      <label className="font-poppins text-zinc-50 mb-1 mt-2" htmlFor="value">
+      <label
+        className={`font-poppins ${TEXT_PRIMARY_COLOR} mb-1 mt-2`}
+        htmlFor="value"
+      >
         Valor
       </label>
       <input
@@ -64,7 +80,7 @@ export default function Form({ onSubmitData = null, selectedTransaction }) {
         required
       />
       <label
-        className="font-poppins text-zinc-50 mb-1 mt-2"
+        className={`font-poppins ${TEXT_PRIMARY_COLOR} mb-1 mt-2`}
         htmlFor="categoria"
       >
         Categoria
@@ -84,7 +100,10 @@ export default function Form({ onSubmitData = null, selectedTransaction }) {
           );
         })}
       </select>
-      <label className="font-poppins text-zinc-50 mb-1 mt-2" htmlFor="date">
+      <label
+        className={`font-poppins ${TEXT_PRIMARY_COLOR} mb-1 mt-2`}
+        htmlFor="date"
+      >
         Data
       </label>
       <input
@@ -94,14 +113,14 @@ export default function Form({ onSubmitData = null, selectedTransaction }) {
         required
         {...register("date")}
       />
-      <div className="flex flex-row justify-end my-4 gap-4">
+      <div className="flex flex-row justify-end my-4 gap-4 w-full">
         <input
           type="reset"
-          className="bg-blue-500 hover:bg-blue-600 text-zinc-50 transition-all px-6 py-2 rounded shadow font-poppin font-semibold"
+          className={`${INFO_COLOR} ${INFO_COLOR_HOVER} ${TEXT_PRIMARY_COLOR} transition-all px-6 py-2 rounded shadow font-poppin font-semibold cursor-pointer`}
         />
         <input
           type="submit"
-          className="bg-green-500 hover:bg-green-600 text-zinc-50 transition-all cursor-pointer px-6 py-2 rounded shadow font-poppin font-semibold"
+          className={`${POSITIVE_COLOR} ${POSITIVE_COLOR_HOVER} ${TEXT_PRIMARY_COLOR} transition-all cursor-pointer px-6 py-2 rounded shadow font-poppin font-semibold`}
         />
       </div>
     </form>

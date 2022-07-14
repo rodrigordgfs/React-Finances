@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import TransactionsService from "../../services/transactions";
 import Loading from "../../Components/Loading";
 import { errorMessage } from "../../utils/toastify";
+import { PRIMARY_COLOR } from "../../utils/colors";
 import moment from "moment";
 
 export default function App() {
@@ -77,7 +78,7 @@ export default function App() {
   };
 
   return (
-    <div className="App bg-zinc-900 h-fit">
+    <div className={`App ${PRIMARY_COLOR} h-fit`}>
       <Header />
       {loading ? (
         <Loading />

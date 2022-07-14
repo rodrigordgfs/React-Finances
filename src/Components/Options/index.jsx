@@ -22,23 +22,23 @@ export default function Options({
     }
   }, [selectedTransaction]);
 
-  function handleOpenModal() {
+  const handleOpenModal = () => {
     setIsModalOpen(true);
-  }
+  };
 
-  function handleCloseModal(newTransaction) {
+  const handleCloseModal = (newTransaction) => {
     setIsModalOpen(false);
     if (newTransaction) {
       handleNewTransaction();
     }
     handleResetSelectedTransaction();
-  }
+  };
 
-  function handleOnChageDate(date) {
+  const handleOnChageDate = (date) => {
     if (onDateChange) {
       onDateChange(date);
     }
-  }
+  };
 
   return (
     <div className="flex flex-col max-w-5xl my-0 mx-auto px-2 pt-4">

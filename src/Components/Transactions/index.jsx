@@ -9,14 +9,13 @@ export default function Transactions({
 }) {
   const quantityTransactions = () => transactions.length;
 
-  function handleSelectTransaction(data) {
+  const handleSelectTransaction = (data) => {
     onSelectTransaction(data);
   }
 
-  function handleDeleteTransactions() {
+  const handleDeleteTransactions = () => {
     if (onDeleteTransactions) {
       onDeleteTransactions();
-      console.log(3);
     }
   }
 

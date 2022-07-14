@@ -7,25 +7,25 @@ export default function DatePicker({ currentDate, onDateChange }) {
     moment(currentDate).format("MMMM [de] YYYY")
   );
 
-  function handleOnChange(data) {
+  const handleOnChange = (data) => {
     if (onDateChange) {
       onDateChange(data);
     }
-  }
+  };
 
-  function handleIncreaseMonth() {
+  const handleIncreaseMonth = () => {
     setDate((previousDate) =>
       moment(previousDate).add(1, "month").format("MMMM [de] YYYY")
     );
     handleOnChange(moment(date).add(1, "month"));
-  }
+  };
 
-  function handleDecreaseMonth() {
+  const handleDecreaseMonth = () => {
     setDate((previousDate) =>
       moment(previousDate).subtract(1, "month").format("MMMM [de] YYYY")
     );
     handleOnChange(moment(date).subtract(1, "month"));
-  }
+  };
 
   return (
     <div className="bg-zinc-800 flex flex-row flex-1 items-center rounded h-14 shadow">

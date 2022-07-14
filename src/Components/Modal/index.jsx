@@ -15,13 +15,13 @@ export default function Modal({
   title,
   selectedTransaction,
 }) {
-  function handleClose(newTransaction = false) {
+  const handleClose = (newTransaction = false) => {
     if (onRequestClose) {
       onRequestClose(newTransaction);
     }
-  }
+  };
 
-  function handleSubmitData(data) {
+  const handleSubmitData = (data) => {
     const body = {
       id: selectedTransaction ? selectedTransaction.id : uuidv4(),
       title: data.title,
@@ -49,7 +49,7 @@ export default function Modal({
           errorMessage(message);
         });
     }
-  }
+  };
 
   return (
     <ReactModal

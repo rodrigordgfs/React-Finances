@@ -8,7 +8,7 @@ import Loading from "../../Components/Loading";
 import { errorMessage } from "../../utils/toastify";
 import moment from "moment";
 
-function App() {
+export default function App() {
   const [loading, setLoading] = useState(true);
   const [transactions, setTransasctions] = useState([]);
   const [revenue, setRevenue] = useState(0);
@@ -17,25 +17,29 @@ function App() {
   const [datePicked, setDatePicked] = useState(moment().format("YYYY-MM"));
   const [selectedTransaction, setSelectedTransaction] = useState(null);
 
-  function getRevenue(data) {
+  useEffect(() => {
+    getTransactions();
+  }, [datePicked]);
+
+  const getRevenue = (data) => {
     return data
       .filter((transaction) => transaction.type === "Receita")
       .reduce(
         (acc, transaction) => Number(acc) + Number(transaction.amount),
         0
       );
-  }
+  };
 
-  function getExpense(data) {
+  const getExpense = (data) => {
     return data
       .filter((transaction) => transaction.type === "Despesa")
       .reduce(
         (acc, transaction) => Number(acc) + Number(transaction.amount),
         0
       );
-  }
+  };
 
-  function getTransactions() {
+  const getTransactions = () => {
     setLoading(true);
     TransactionsService.get()
       .then(({ data }) => {
@@ -58,24 +62,19 @@ function App() {
       .catch(({ message }) => {
         errorMessage(message);
       });
-  }
+  };
 
-  useEffect(() => {
+  const handleUpdateTransactionsList = () => {
     getTransactions();
-  }, [datePicked]);
+  };
 
-  function handleUpdateTransactionsList() {
-    getTransactions();
-    console.log(4);
-  }
-
-  function handleDateOptionChange(date) {
+  const handleDateOptionChange = (date) => {
     setDatePicked(moment(date).format("YYYY-MM"));
-  }
+  };
 
-  function handleTransactionSelected(data) {
+  const handleTransactionSelected = (data) => {
     setSelectedTransaction(data);
-  }
+  };
 
   return (
     <div className="App bg-zinc-900 h-fit">
@@ -102,5 +101,3 @@ function App() {
     </div>
   );
 }
-
-export default App;

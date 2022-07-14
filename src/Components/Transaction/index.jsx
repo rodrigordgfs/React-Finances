@@ -21,28 +21,26 @@ export default function Transaction({
     formatedMoney(isRecept() ? Number(amount) : Number(amount) * -1);
   const formatedDate = () => moment(date).format("DD/MM/YYYY");
 
-  function handleOnClickTransaction() {
+  const handleOnClickTransaction = () => {
     onSelectTransaction(data);
-  }
+  };
 
-  function handleUpdateTransactions() {
+  const handleUpdateTransactions = () => {
     if (onDeleteTransactions) {
       onDeleteTransactions();
-      console.log(2);
     }
-  }
+  };
 
-  function handleOnDeleteTransaction() {
+  const handleOnDeleteTransaction = () => {
     TransactionService.delete(id)
       .then(() => {
         successMessage("Transação excluída com sucesso!");
         handleUpdateTransactions();
-        console.log(1);
       })
       .catch(({ message }) => {
         errorMessage(message);
       });
-  }
+  };
 
   return (
     <div

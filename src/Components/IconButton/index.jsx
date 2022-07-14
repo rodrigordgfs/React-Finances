@@ -6,11 +6,11 @@ export default function IconButton({
   hover = "bg-zinc-700",
   onButtonClick = null,
 }) {
-  function handleButtonClick() {
+  const handleButtonClick = () => {
     if (onButtonClick) {
       onButtonClick();
     }
-  }
+  };
 
   return (
     <div

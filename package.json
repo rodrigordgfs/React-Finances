@@ -1,7 +1,8 @@
 {
   "name": "react-finances",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
+  "homepage": ".",
   "scripts": {
     "api": "json-server --watch src/api/data.json --port 8888",
     "dev": "vite",

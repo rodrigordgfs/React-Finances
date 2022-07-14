@@ -5,12 +5,6 @@ import { CATEGORIES_OPTIONS, TYPES_OPTIONS } from "../../utils/constants";
 export default function Form({ onSubmitData = null, selectedTransaction }) {
   const { register, handleSubmit, setValue } = useForm();
 
-  function onSubmit(data) {
-    if (onSubmitData) {
-      onSubmitData(data);
-    }
-  }
-
   useEffect(() => {
     if (selectedTransaction) {
       setValue("type", selectedTransaction.type);
@@ -20,6 +14,12 @@ export default function Form({ onSubmitData = null, selectedTransaction }) {
       setValue("date", selectedTransaction.date);
     }
   }, [selectedTransaction]);
+
+  const onSubmit = (data) => {
+    if (onSubmitData) {
+      onSubmitData(data);
+    }
+  };
 
   return (
     <form className="flex flex-col" onSubmit={handleSubmit(onSubmit)}>

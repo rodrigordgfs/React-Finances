@@ -5,8 +5,9 @@ import {
   ICONS_COLOR,
   SECONDARY_COLOR,
   SECONDARY_COLOR_HOVER,
-  TEXT_SECONDARY_COLOR
+  TEXT_SECONDARY_COLOR,
 } from "../../utils/colors";
+import IconButtonTransparent from "../IconButtonTransparent";
 
 export default function DatePicker({ currentDate, onDateChange }) {
   const [date, setDate] = useState(
@@ -35,23 +36,17 @@ export default function DatePicker({ currentDate, onDateChange }) {
 
   return (
     <div
-      className={`${SECONDARY_COLOR} flex flex-row flex-1 items-center rounded h-14 shadow-md`}
+      className={`${SECONDARY_COLOR} flex flex-row flex-1 px-2 items-center rounded h-14 shadow-md border-2 border-solid border-b-tertiary-dark dark:border-0`}
     >
-      <button
-        onClick={handleDecreaseMonth}
-        className={`ml-4 p-2 cursor-pointer rounded-full ${SECONDARY_COLOR_HOVER} transition-all`}
-      >
+      <IconButtonTransparent onButtonClick={handleDecreaseMonth}>
         <ChevronLeftIcon className={`h-7 w-7 ${ICONS_COLOR}`} />
-      </button>
+      </IconButtonTransparent>
       <p className={`flex-1 font-poppins ${TEXT_SECONDARY_COLOR} text-center`}>
         {date}
       </p>
-      <button
-        onClick={handleIncreaseMonth}
-        className={`mr-4 p-2 rounded-full cursor-pointer ${SECONDARY_COLOR_HOVER} transition-all`}
-      >
+      <IconButtonTransparent onButtonClick={handleIncreaseMonth}>
         <ChevronRightIcon className={`h-7 w-7 ${ICONS_COLOR}`} />
-      </button>
+      </IconButtonTransparent>
     </div>
   );
 }

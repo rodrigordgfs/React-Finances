@@ -26,7 +26,7 @@ export default function Transactions({
   };
 
   return (
-    <div className="flex flex-col max-w-5xl my-0 mx-auto px-2 pt-6">
+    <div className="flex flex-col max-w-5xl my-0 mx-auto px-2 pt-6 ">
       <div className="flex flex-row items-center space-x-2">
         <PlusIcon className={`h-5 w-5 ${ICONS_COLOR}`} />
         <p className={`font-poppins ${TEXT_PRIMARY_COLOR}`}>
@@ -34,7 +34,7 @@ export default function Transactions({
         </p>
       </div>
       <div
-        className={`${SECONDARY_COLOR} rounded shadow-md my-4 px-4 py-4 flex flex-col gap-4`}
+        className={`${SECONDARY_COLOR} rounded shadow-md my-4 px-4 py-4 flex flex-col gap-4 border-2 border-solid border-b-tertiary-dark dark:border-0`}
       >
         {quantityTransactions() <= 0 ? (
           <div className="flex flex-col items-center justify-center">

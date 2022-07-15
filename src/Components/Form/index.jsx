@@ -37,7 +37,7 @@ export default function Form({ onSubmitData = null, selectedTransaction }) {
         Tipo
       </label>
       <select
-        className="font-poppins p-2 rounded shadow"
+        className="font-poppins p-2 rounded shadow-md"
         name="type"
         id="type"
         required
@@ -59,7 +59,7 @@ export default function Form({ onSubmitData = null, selectedTransaction }) {
       </label>
       <input
         {...register("title")}
-        className="font-poppins p-2 rounded shadow"
+        className="font-poppins p-2 rounded shadow-md"
         type="text"
         id="title"
         maxLength={30}
@@ -72,7 +72,7 @@ export default function Form({ onSubmitData = null, selectedTransaction }) {
         Valor
       </label>
       <input
-        className="font-poppins p-2 rounded shadow"
+        className="font-poppins p-2 rounded shadow-md"
         {...register("value")}
         type="number"
         step="any"
@@ -86,7 +86,7 @@ export default function Form({ onSubmitData = null, selectedTransaction }) {
         Categoria
       </label>
       <select
-        className="font-poppins p-2 rounded shadow"
+        className="font-poppins p-2 rounded shadow-md"
         name="categoria"
         id="categoria"
         required
@@ -107,7 +107,7 @@ export default function Form({ onSubmitData = null, selectedTransaction }) {
         Data
       </label>
       <input
-        className="font-poppins p-2 rounded shadow"
+        className="font-poppins p-2 rounded shadow-md"
         type="date"
         id="date"
         required
@@ -116,11 +116,11 @@ export default function Form({ onSubmitData = null, selectedTransaction }) {
       <div className="flex flex-row justify-end my-4 gap-4 w-full">
         <input
           type="reset"
-          className={`${INFO_COLOR} ${INFO_COLOR_HOVER} ${TEXT_PRIMARY_COLOR} transition-all px-6 py-2 rounded shadow font-poppin font-semibold cursor-pointer`}
+          className={`${INFO_COLOR} ${INFO_COLOR_HOVER} ${TEXT_PRIMARY_COLOR} transition-all px-6 py-2 rounded shadow-md font-poppin font-semibold cursor-pointer`}
         />
         <input
           type="submit"
-          className={`${POSITIVE_COLOR} ${POSITIVE_COLOR_HOVER} ${TEXT_PRIMARY_COLOR} transition-all cursor-pointer px-6 py-2 rounded shadow font-poppin font-semibold`}
+          className={`${POSITIVE_COLOR} ${POSITIVE_COLOR_HOVER} ${TEXT_PRIMARY_COLOR} transition-all cursor-pointer px-6 py-2 rounded shadow-md font-poppin font-semibold`}
         />
       </div>
     </form>

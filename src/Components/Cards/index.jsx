@@ -1,5 +1,8 @@
-import { HiArrowNarrowUp, HiArrowNarrowDown } from "react-icons/hi";
-import { AiFillBank } from "react-icons/ai";
+import {
+  ArrowNarrowUpIcon,
+  ArrowNarrowDownIcon,
+  ScaleIcon,
+} from "@heroicons/react/outline";
 import Card from "../Card";
 import { formatedMoney } from "../../utils/moneyFormat";
 import {
@@ -7,6 +10,7 @@ import {
   NEGATIVE_COLOR,
   POSITIVE_COLOR,
   WHITE,
+  ICONS_COLOR,
 } from "../../utils/colors";
 
 export default function Cards({ revenue = 0, expense = 0, balance = 0 }) {
@@ -18,14 +22,14 @@ export default function Cards({ revenue = 0, expense = 0, balance = 0 }) {
           description={formatedMoney(revenue || 0)}
           color={SECONDARY_COLOR}
         >
-          <HiArrowNarrowUp size={28} color={WHITE} />
+          <ArrowNarrowUpIcon className={`h-9 w-9 ${ICONS_COLOR}`} />
         </Card>
         <Card
           title="Despesa"
           description={formatedMoney(expense || 0)}
           color={SECONDARY_COLOR}
         >
-          <HiArrowNarrowDown size={28} color={WHITE} />
+          <ArrowNarrowDownIcon className={`h-9 w-9 ${ICONS_COLOR}`} />
         </Card>
         <Card
           title="Balanço"
@@ -38,7 +42,7 @@ export default function Cards({ revenue = 0, expense = 0, balance = 0 }) {
               : `${POSITIVE_COLOR}`
           }
         >
-          <AiFillBank size={28} color={WHITE} />
+          <ScaleIcon className={`h-9 w-9 ${ICONS_COLOR}`} />
         </Card>
       </div>
     </div>

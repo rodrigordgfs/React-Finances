@@ -26,7 +26,7 @@ export default function User() {
     <button
       type="button"
       onClick={handleThemeSwitch}
-      className={`px-4 py-2 ${SECONDARY_COLOR} ${SECONDARY_COLOR_HOVER} transition-all rounded shadow`}
+      className={`px-4 py-2 ${SECONDARY_COLOR} ${SECONDARY_COLOR_HOVER} transition-all rounded shadow-md`}
     >
       {theme === "dark" ? "🌙" : "🌞"}
     </button>

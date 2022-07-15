@@ -17,7 +17,7 @@ export default function IconButton({
   return (
     <div
       onClick={handleButtonClick}
-      className={`${color} ${hover} transition-all h-${size} w-${size} flex items-center justify-center rounded shadow cursor-pointer`}
+      className={`${color} ${hover} transition-all h-${size} w-${size} flex items-center justify-center rounded shadow-md cursor-pointer`}
     >
       {children}
     </div>

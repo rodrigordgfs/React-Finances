@@ -1,11 +1,12 @@
 import ReactModal from "react-modal";
 import IconButton from "../IconButton";
-import { AiOutlineClose } from "react-icons/ai";
+import { XIcon } from "@heroicons/react/outline";
 import "./index.css";
 import Form from "../Form";
 import { v4 as uuidv4 } from "uuid";
 import TransactionService from "../../services/transactions";
 import { errorMessage, successMessage } from "../../utils/toastify";
+import { ICONS_COLOR } from "../../utils/colors";
 
 ReactModal.setAppElement("#root");
 
@@ -63,7 +64,7 @@ export default function Modal({
           {title}
         </h2>
         <IconButton onButtonClick={handleClose}>
-          <AiOutlineClose size={28} color="white" />
+          <XIcon className={`h-7 w-7 ${ICONS_COLOR}`} />
         </IconButton>
       </div>
       <Form

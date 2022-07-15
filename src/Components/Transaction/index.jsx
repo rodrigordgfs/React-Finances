@@ -1,8 +1,7 @@
 import moment from "moment";
 import { formatedMoney } from "../../utils/moneyFormat";
 import IconButton from "../IconButton";
-import { AiFillDelete } from "react-icons/ai";
-import { MdModeEditOutline } from "react-icons/md";
+import { PencilIcon, TrashIcon } from "@heroicons/react/outline";
 import TransactionService from "../../services/transactions";
 import { errorMessage, successMessage } from "../../utils/toastify";
 import {
@@ -19,6 +18,7 @@ import {
   TEXT_SECONDARY_COLOR,
   TERTIARY_COLOR,
   WHITE,
+  ICONS_COLOR,
 } from "../../utils/colors";
 
 export default function Transaction({
@@ -84,14 +84,14 @@ export default function Transaction({
           color={INFO_COLOR}
           hover={INFO_COLOR_HOVER}
         >
-          <MdModeEditOutline color={WHITE} size={20} />
+          <PencilIcon className={`h-7 w-7 ${ICONS_COLOR}`} />
         </IconButton>
         <IconButton
           onButtonClick={handleOnDeleteTransaction}
           color={NEGATIVE_COLOR}
           hover={NEGATIVE_COLOR_HOVER}
         >
-          <AiFillDelete color={WHITE} size={20} />
+          <TrashIcon className={`h-6 w-6 ${ICONS_COLOR}`} />
         </IconButton>
       </div>
     </div>

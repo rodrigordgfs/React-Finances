@@ -1,6 +1,6 @@
-import { AiOutlinePlus } from "react-icons/ai";
-import { HiOutlineEmojiSad } from "react-icons/hi";
+import { PlusIcon, EmojiSadIcon } from "@heroicons/react/outline";
 import {
+  ICONS_COLOR,
   SECONDARY_COLOR,
   TEXT_PRIMARY_COLOR,
   TEXT_SECONDARY_COLOR,
@@ -28,17 +28,17 @@ export default function Transactions({
   return (
     <div className="flex flex-col max-w-5xl my-0 mx-auto px-2 pt-6">
       <div className="flex flex-row items-center space-x-2">
-        <AiOutlinePlus color={WHITE} />
+        <PlusIcon className={`h-5 w-5 ${ICONS_COLOR}`} />
         <p className={`font-poppins ${TEXT_PRIMARY_COLOR}`}>
           Minhas Transações
         </p>
       </div>
       <div
-        className={`${SECONDARY_COLOR} rounded shadow my-4 px-4 py-4 flex flex-col gap-4`}
+        className={`${SECONDARY_COLOR} rounded shadow-md my-4 px-4 py-4 flex flex-col gap-4`}
       >
         {quantityTransactions() <= 0 ? (
           <div className="flex flex-col items-center justify-center">
-            <HiOutlineEmojiSad size={42} color={WHITE} />
+            <EmojiSadIcon className={`h-9 w-9 ${ICONS_COLOR}`} />
             <p
               className={`font-poppins ${TEXT_PRIMARY_COLOR} font-semibold text-lg`}
             >

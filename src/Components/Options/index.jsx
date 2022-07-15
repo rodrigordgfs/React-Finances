@@ -1,10 +1,10 @@
 import DatePicker from "../DatePicker";
 import IconButton from "../IconButton";
-import { AiFillPrinter, AiOutlinePlusCircle } from "react-icons/ai";
+import { PlusCircleIcon, PrinterIcon } from '@heroicons/react/outline'
 import Modal from "../Modal";
 import { useEffect, useState } from "react";
 import { infoMessage } from "../../utils/toastify";
-import { WHITE } from "../../utils/colors";
+import { ICONS_COLOR, WHITE } from "../../utils/colors";
 
 export default function Options({
   handleNewTransaction = null,
@@ -51,10 +51,10 @@ export default function Options({
       <div className="max-w-full md:w-2/4 w-full flex flex-row items-center space-x-4">
         <DatePicker currentDate={date} onDateChange={handleOnChageDate} />
         <IconButton onButtonClick={handleOpenModal}>
-          <AiOutlinePlusCircle size={28} color={WHITE} />
+          <PlusCircleIcon className={`h-8 w-8 ${ICONS_COLOR}`} />
         </IconButton>
         <IconButton onButtonClick={handleCreateReport}>
-          <AiFillPrinter size={28} color={WHITE} />
+          <PrinterIcon className={`h-8 w-8 ${ICONS_COLOR}`} />
         </IconButton>
       </div>
       <Modal

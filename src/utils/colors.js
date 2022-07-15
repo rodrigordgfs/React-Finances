@@ -18,6 +18,8 @@ const INFO_COLOR_HOVER = "hover:bg-info-hover";
 const TEXT_POSITIVE_COLOR = "text-positive";
 const TEXT_NEGATIVE_COLOR = "text-negative";
 
+const ICONS_COLOR = "text-text-primary-light dark:text-text-primary-dark";
+
 const BORDER_OUTLINE_POSITIVE_COLOR = "outline-positive";
 const BORDER_OUTLINE_NEGATIVE_COLOR = "outline-negative";
 const WHITE = "white";
@@ -39,5 +41,6 @@ export {
   BORDER_OUTLINE_POSITIVE_COLOR,
   BORDER_OUTLINE_NEGATIVE_COLOR,
   TERTIARY_COLOR,
+  ICONS_COLOR,
   WHITE,
 };

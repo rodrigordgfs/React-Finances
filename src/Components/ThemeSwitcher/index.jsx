@@ -1,11 +1,15 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
+import { useLocalStorage } from "../../hooks/useLocalStorage";
 import { SECONDARY_COLOR, SECONDARY_COLOR_HOVER } from "../../utils/colors";
 
 export default function User() {
-  const [theme, setTheme] = useState(null);
+  const [theme, setTheme] = useLocalStorage("theme", "light");
 
   useEffect(() => {
-    if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+    if (
+      theme === "dark" &&
+      window.matchMedia("(prefers-color-scheme: dark)").matches
+    ) {
       setTheme("dark");
     } else {
       setTheme("light");

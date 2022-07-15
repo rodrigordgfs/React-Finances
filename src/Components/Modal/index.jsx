@@ -6,7 +6,7 @@ import Form from "../Form";
 import { v4 as uuidv4 } from "uuid";
 import TransactionService from "../../services/transactions";
 import { errorMessage, successMessage } from "../../utils/toastify";
-import { ICONS_COLOR } from "../../utils/colors";
+import { ICONS_COLOR, TEXT_PRIMARY_COLOR } from "../../utils/colors";
 
 ReactModal.setAppElement("#root");
 
@@ -60,7 +60,7 @@ export default function Modal({
       className="modal-content"
     >
       <div className="flex flex-row items-center justify-between w-full">
-        <h2 className="font-poppins text-zinc-50 font-semibold text-2xl">
+        <h2 className={`font-poppins ${TEXT_PRIMARY_COLOR} font-semibold text-2xl`}>
           {title}
         </h2>
         <IconButton onButtonClick={handleClose}>

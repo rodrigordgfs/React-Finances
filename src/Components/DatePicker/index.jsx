@@ -4,15 +4,16 @@ import { useState } from "react";
 import {
   ICONS_COLOR,
   SECONDARY_COLOR,
-  SECONDARY_COLOR_HOVER,
   TEXT_SECONDARY_COLOR,
 } from "../../utils/colors";
+import { getMonth } from "../../utils/date";
 import IconButtonTransparent from "../IconButtonTransparent";
 
 export default function DatePicker({ currentDate, onDateChange }) {
-  const [date, setDate] = useState(
-    moment(currentDate).format("MMMM [de] YYYY")
-  );
+  const [date, setDate] = useState(moment(currentDate).format("YYYY-MM-DD"));
+
+  const formatedDate = () =>
+    `${getMonth(date)} de ${moment(date).format("YYYY")}`;
 
   const handleOnChange = (data) => {
     if (onDateChange) {
@@ -22,14 +23,14 @@ export default function DatePicker({ currentDate, onDateChange }) {
 
   const handleIncreaseMonth = () => {
     setDate((previousDate) =>
-      moment(previousDate).add(1, "month").format("MMMM [de] YYYY")
+      moment(previousDate).add(1, "month").format("YYYY-MM-DD")
     );
     handleOnChange(moment(date).add(1, "month"));
   };
 
   const handleDecreaseMonth = () => {
     setDate((previousDate) =>
-      moment(previousDate).subtract(1, "month").format("MMMM [de] YYYY")
+      moment(previousDate).subtract(1, "month").format("YYYY-MM-DD")
     );
     handleOnChange(moment(date).subtract(1, "month"));
   };
@@ -42,7 +43,7 @@ export default function DatePicker({ currentDate, onDateChange }) {
         <ChevronLeftIcon className={`h-7 w-7 ${ICONS_COLOR}`} />
       </IconButtonTransparent>
       <p className={`flex-1 font-poppins ${TEXT_SECONDARY_COLOR} text-center`}>
-        {date}
+        {formatedDate()}
       </p>
       <IconButtonTransparent onButtonClick={handleIncreaseMonth}>
         <ChevronRightIcon className={`h-7 w-7 ${ICONS_COLOR}`} />

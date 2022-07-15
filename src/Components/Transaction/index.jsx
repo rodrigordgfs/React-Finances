@@ -66,10 +66,14 @@ export default function Transaction({
     >
       <div className="flex-col w-full">
         <div className="flex flex-row items-center justify-between">
-          <p className={`font-poppins font-semibold ${TEXT_PRIMARY_COLOR}`}>
+          <p
+            className={`font-poppins font-semibold text-lg ${TEXT_PRIMARY_COLOR}`}
+          >
             {title}
           </p>
-          <p className={`font-poppins ${textColor()}`}>{value()}</p>
+          <p className={`font-poppins font-semibold text-lg ${textColor()}`}>
+            {value()}
+          </p>
         </div>
         <div
           className={`font-poppins ${TEXT_SECONDARY_COLOR} flex flex-row items-center justify-between`}

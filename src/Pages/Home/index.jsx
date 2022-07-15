@@ -78,12 +78,12 @@ export default function App() {
   };
 
   return (
-    <div className={`App ${PRIMARY_COLOR} h-screen`}>
+    <div className={`App ${PRIMARY_COLOR} h-full flex flex-col`}>
       <Header />
       {loading ? (
         <Loading />
       ) : (
-        <>
+        <div className="flex-1 h-full">
           <Cards revenue={revenue} expense={expense} balance={balance} />
           <Options
             handleNewTransaction={handleUpdateTransactionsList}
@@ -97,7 +97,7 @@ export default function App() {
             onSelectTransaction={handleTransactionSelected}
             onDeleteTransactions={handleUpdateTransactionsList}
           />
-        </>
+        </div>
       )}
     </div>
   );

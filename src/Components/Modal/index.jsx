@@ -7,6 +7,8 @@ import { v4 as uuidv4 } from "uuid";
 import TransactionService from "../../services/transactions";
 import { errorMessage, successMessage } from "../../utils/toastify";
 import { ICONS_COLOR } from "../../utils/colors";
+import { ThemeContext } from "../../contexts/ThemeProvider/context";
+import { useContext, useEffect, useState } from "react";
 
 ReactModal.setAppElement("#root");
 
@@ -16,6 +18,15 @@ export default function Modal({
   title,
   selectedTransaction,
 }) {
+  const themeContext = useContext(ThemeContext);
+  const { themeState, themeDispatch } = themeContext;
+  const [theme, setTheme] = useState("");
+
+  useEffect(() => {
+    setTheme(themeState);
+    console.log(themeState);
+  });
+
   const handleClose = (newTransaction = false) => {
     if (onRequestClose) {
       onRequestClose(newTransaction);

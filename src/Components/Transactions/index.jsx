@@ -40,7 +40,7 @@ export default function Transactions({
           <div className="flex flex-col items-center justify-center">
             <EmojiSadIcon className={`h-9 w-9 ${ICONS_COLOR}`} />
             <p
-              className={`font-poppins ${TEXT_PRIMARY_COLOR} font-semibold text-lg`}
+              className={`font-poppins ${TEXT_PRIMARY_COLOR} font-semibold text-lg text-center`}
             >
               Nenhum item foi encontrado neste mês!
             </p>

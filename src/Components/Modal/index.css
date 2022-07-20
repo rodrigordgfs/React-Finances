@@ -17,3 +17,43 @@
   padding: 10px;
   border-radius: 5px;
 }
+
+.modal-overlay-dark {
+  background-color: rgba(0, 0, 0, 0.9);
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-content-dark {
+  width: 90%;
+  max-width: 500px;
+  background-color: #181818;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.modal-overlay-light {
+  background-color: rgba(255, 255, 255, 0.9);
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-content-light {
+  width: 90%;
+  max-width: 500px;
+  background-color: #cecece;
+  padding: 10px;
+  border-radius: 5px;
+}

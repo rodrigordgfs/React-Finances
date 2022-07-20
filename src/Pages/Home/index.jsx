@@ -78,7 +78,7 @@ export default function App() {
   };
 
   return (
-    <div className={`App ${PRIMARY_COLOR} h-full flex flex-col`}>
+    <div className={`App ${PRIMARY_COLOR} min-h-screen flex flex-col`}>
       <Header />
       {loading ? (
         <Loading />

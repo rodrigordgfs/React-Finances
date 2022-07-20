@@ -14,7 +14,7 @@ export default function Card({ title, description, color, children }) {
         </p>
         {children}
       </div>
-      <p className={`${TEXT_PRIMARY_COLOR} font-poppins text-3xl pt-10`}>
+      <p className={`${TEXT_PRIMARY_COLOR} font-poppins font-semibold text-3xl pt-10`}>
         {description}
       </p>
     </div>

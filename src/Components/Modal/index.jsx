@@ -71,7 +71,9 @@ export default function Modal({
       className="modal-content"
     >
       <div className="flex flex-row items-center justify-between w-full">
-        <h2 className="font-poppins text-zinc-50 font-semibold text-2xl">
+        <h2
+          className={`font-poppins ${TEXT_PRIMARY_COLOR} font-semibold text-2xl`}
+        >
           {title}
         </h2>
         <IconButton onButtonClick={handleClose}>

@@ -8,9 +8,9 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "prod:local": "vite build && serve -s build",
-    "prod:cloud": "vite build && netlify deploy --prod --open --dir build",
-    "prod:cloud:test": "vite build && netlify deploy --open --dir build"
+    "prod:local": "vite build && serve -s dist",
+    "prod:cloud": "vite build && netlify deploy --prod --open --dir dist",
+    "prod:cloud:test": "vite build && netlify deploy --open --dir dist"
   },
   "dependencies": {
     "@heroicons/react": "^1.0.6",

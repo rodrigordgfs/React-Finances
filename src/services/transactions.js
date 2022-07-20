@@ -5,7 +5,7 @@ class TransactionsService extends Axios {
     super({
       url: "transactions",
       config: {
-        baseURL: "https://capable-fish-meat.glitch.me/",
+        baseURL: "https://api-finance-react.herokuapp.com/",
       },
     });
   }

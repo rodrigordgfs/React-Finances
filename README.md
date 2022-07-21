@@ -36,7 +36,7 @@ Inicie o servidor
 
 
 ## Demonstração
-[LIVE DEMO](https://projects.shinodalabs.com.br/finances/)
+[LIVE DEMO](https://react-finance-rodrigordgfs.netlify.app/)
 
 ![](https://i.imgur.com/6pr5s7a.gif)
 

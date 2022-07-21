@@ -6,7 +6,7 @@ import Form from "../Form";
 import { v4 as uuidv4 } from "uuid";
 import TransactionService from "../../services/transactions";
 import { errorMessage, successMessage } from "../../utils/toastify";
-import { ICONS_COLOR } from "../../utils/colors";
+import { ICONS_COLOR, TEXT_PRIMARY_COLOR } from "../../utils/colors";
 import { ThemeContext } from "../../contexts/ThemeProvider/context";
 import { useContext, useEffect, useState } from "react";
 

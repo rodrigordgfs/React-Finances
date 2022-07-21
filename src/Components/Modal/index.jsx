@@ -30,6 +30,7 @@ export default function Modal({
       category: data.category,
       type: data.type,
       date: data.date,
+      repeat: data.repeat,
     };
     if (selectedTransaction) {
       TransactionService.patch(selectedTransaction.id, body)

@@ -27,3 +27,19 @@ export const MONTHS = [
   { id: 11, name: "Novembro" },
   { id: 12, name: "Dezembro" },
 ];
+
+export const REPEAT_OPTIONS = [
+  { id: 0, name: "Não repetir" },
+  { id: 1, name: "1 Mês" },
+  { id: 2, name: "2 Meses" },
+  { id: 3, name: "3 Meses" },
+  { id: 4, name: "4 Meses" },
+  { id: 5, name: "5 Meses" },
+  { id: 6, name: "6 Meses" },
+  { id: 7, name: "7 Meses" },
+  { id: 8, name: "8 Meses" },
+  { id: 9, name: "9 Meses" },
+  { id: 10, name: "10 Meses" },
+  { id: 11, name: "11 Meses" },
+  { id: 12, name: "1 Ano" },
+];

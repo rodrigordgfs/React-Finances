@@ -7,10 +7,16 @@ import {
   POSITIVE_COLOR_HOVER,
   TEXT_PRIMARY_COLOR,
 } from "../../utils/colors";
-import { CATEGORIES_OPTIONS, TYPES_OPTIONS } from "../../utils/constants";
+import {
+  CATEGORIES_OPTIONS,
+  TYPES_OPTIONS,
+  REPEAT_OPTIONS,
+} from "../../utils/constants";
 
 export default function Form({ onSubmitData = null, selectedTransaction }) {
   const { register, handleSubmit, setValue } = useForm();
+
+  const showRepeat = () => !selectedTransaction;
 
   useEffect(() => {
     if (selectedTransaction) {
@@ -113,6 +119,30 @@ export default function Form({ onSubmitData = null, selectedTransaction }) {
         required
         {...register("date")}
       />
+      {showRepeat() && (
+        <>
+          <label
+            className={`font-poppins ${TEXT_PRIMARY_COLOR} mb-1 mt-2`}
+            htmlFor="repetir"
+          >
+            Repetir
+          </label>
+          <select
+            className="font-poppins p-2 rounded shadow-md"
+            name="repetir"
+            id="repetir"
+            {...register("repeat")}
+          >
+            {REPEAT_OPTIONS.map(({ id, name }) => {
+              return (
+                <option key={id} value={id}>
+                  {name}
+                </option>
+              );
+            })}
+          </select>
+        </>
+      )}
       <div className="flex flex-row justify-end my-4 gap-4 w-full">
         <input
           type="reset"

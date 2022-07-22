@@ -112,7 +112,7 @@ export default function Form({ onSubmitData = null, selectedTransaction }) {
         Data
       </label>
       <input
-        className="font-poppins p-2 rounded shadow-md"
+        className="font-poppins p-2 rounded shadow-md w-full"
         type="month"
         id="date"
         required

@@ -21,7 +21,7 @@ export default class Services {
       params,
     });
   }
-
+ 
   post(data = {}, config = {}) {
     return this.axios.post(this.url, data, config);
   }

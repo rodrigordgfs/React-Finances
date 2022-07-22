@@ -1,3 +1,4 @@
+import moment from "moment";
 import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import {
@@ -5,20 +6,24 @@ import {
   INFO_COLOR_HOVER,
   POSITIVE_COLOR,
   POSITIVE_COLOR_HOVER,
-  TEXT_PRIMARY_COLOR,
+  TEXT_PRIMARY_COLOR
 } from "../../utils/colors";
-import { CATEGORIES_OPTIONS, TYPES_OPTIONS } from "../../utils/constants";
+import {
+  CATEGORIES_OPTIONS, REPEAT_OPTIONS, TYPES_OPTIONS
+} from "../../utils/constants";
 
 export default function Form({ onSubmitData = null, selectedTransaction }) {
   const { register, handleSubmit, setValue } = useForm();
 
-  useEffect(() => {
+  const showRepeat = () => !selectedTransaction;
+
+  useEffect(() => { 
     if (selectedTransaction) {
       setValue("type", selectedTransaction.type);
       setValue("category", selectedTransaction.category);
       setValue("title", selectedTransaction.title);
       setValue("value", selectedTransaction.amount);
-      setValue("date", selectedTransaction.date);
+      setValue("date", moment(selectedTransaction.date).format("YYYY-MM"));
     }
   }, [selectedTransaction]);
 
@@ -107,12 +112,36 @@ export default function Form({ onSubmitData = null, selectedTransaction }) {
         Data
       </label>
       <input
-        className="font-poppins p-2 rounded shadow-md"
-        type="date"
+        className="font-poppins p-2 rounded shadow-md w-full"
+        type="month"
         id="date"
         required
         {...register("date")}
       />
+      {showRepeat() && (
+        <>
+          <label
+            className={`font-poppins ${TEXT_PRIMARY_COLOR} mb-1 mt-2`}
+            htmlFor="repetir"
+          >
+            Repetir
+          </label>
+          <select
+            className="font-poppins p-2 rounded shadow-md"
+            name="repetir"
+            id="repetir"
+            {...register("repeat")}
+          >
+            {REPEAT_OPTIONS.map(({ id, name }) => {
+              return (
+                <option key={id} value={id}>
+                  {name}
+                </option>
+              );
+            })}
+          </select>
+        </>
+      )}
       <div className="flex flex-row justify-end my-4 gap-4 w-full">
         <input
           type="reset"

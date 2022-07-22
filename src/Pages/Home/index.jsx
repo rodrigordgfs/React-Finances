@@ -1,13 +1,13 @@
-import Header from "../../Components/Header";
+import moment from "moment";
+import { useEffect, useState } from "react";
 import Cards from "../../Components/Cards";
+import Header from "../../Components/Header";
+import Loading from "../../Components/Loading";
 import Options from "../../Components/Options";
 import Transactions from "../../Components/Transactions";
-import { useEffect, useState } from "react";
 import TransactionsService from "../../services/transactions";
-import Loading from "../../Components/Loading";
-import { errorMessage } from "../../utils/toastify";
 import { PRIMARY_COLOR } from "../../utils/colors";
-import moment from "moment";
+import { errorMessage } from "../../utils/toastify";
 
 export default function App() {
   const [loading, setLoading] = useState(true);
@@ -102,3 +102,4 @@ export default function App() {
     </div>
   );
 }
+ 

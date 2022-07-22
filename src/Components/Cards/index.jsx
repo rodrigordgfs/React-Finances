@@ -1,17 +1,12 @@
 import {
-  ArrowNarrowUpIcon,
-  ArrowNarrowDownIcon,
-  ScaleIcon,
+  ArrowNarrowDownIcon, ArrowNarrowUpIcon, ScaleIcon
 } from "@heroicons/react/outline";
-import Card from "../Card";
-import { formatedMoney } from "../../utils/moneyFormat";
 import {
-  SECONDARY_COLOR,
-  NEGATIVE_COLOR,
-  POSITIVE_COLOR,
-  WHITE,
-  ICONS_COLOR,
+  ICONS_COLOR, NEGATIVE_COLOR,
+  POSITIVE_COLOR, SECONDARY_COLOR
 } from "../../utils/colors";
+import { formatedMoney } from "../../utils/moneyFormat";
+import Card from "../Card";
 
 export default function Cards({ revenue = 0, expense = 0, balance = 0 }) {
   return (

@@ -1,14 +1,15 @@
-import ReactModal from "react-modal";
-import IconButton from "../IconButton";
 import { XIcon } from "@heroicons/react/outline";
-import "./index.css";
-import Form from "../Form";
-import { v4 as uuidv4 } from "uuid";
-import TransactionService from "../../services/transactions";
-import { errorMessage, successMessage } from "../../utils/toastify";
-import { ICONS_COLOR, TEXT_PRIMARY_COLOR } from "../../utils/colors";
-import { ThemeContext } from "../../contexts/ThemeProvider/context";
+import moment from 'moment';
 import { useContext, useEffect, useState } from "react";
+import ReactModal from "react-modal";
+import { v4 as uuidv4 } from "uuid";
+import { ThemeContext } from "../../contexts/ThemeProvider/context";
+import TransactionService from "../../services/transactions";
+import { ICONS_COLOR, TEXT_PRIMARY_COLOR } from "../../utils/colors";
+import { errorMessage, successMessage } from "../../utils/toastify";
+import Form from "../Form";
+import IconButton from "../IconButton";
+import "./index.css";
 
 ReactModal.setAppElement("#root");
 
@@ -32,7 +33,7 @@ export default function Modal({
       onRequestClose(newTransaction);
     }
   };
-
+ 
   const handleSubmitData = (data) => {
     const body = {
       id: selectedTransaction ? selectedTransaction.id : uuidv4(),
@@ -40,7 +41,8 @@ export default function Modal({
       amount: data.value,
       category: data.category,
       type: data.type,
-      date: data.date,
+      date: moment(data.date).format("YYYY-MM-01"),
+      repeat: data.repeat,
     };
     if (selectedTransaction) {
       TransactionService.patch(selectedTransaction.id, body)

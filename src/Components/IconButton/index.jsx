@@ -20,6 +20,6 @@ export default function IconButton({
       className={`${color} ${hover} transition-all h-${size} w-${size} flex items-center justify-center rounded shadow-md cursor-pointer border-2 border-solid border-b-tertiary-dark dark:border-0`}
     >
       {children}
-    </div>
+    </div> 
   );
 }

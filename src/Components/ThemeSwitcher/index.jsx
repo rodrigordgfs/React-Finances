@@ -27,7 +27,7 @@ export default function User() {
   const handleThemeSwitch = () => setTheme(theme === "dark" ? "light" : "dark");
 
   return (
-    <button
+    <button 
       type="button"
       onClick={handleThemeSwitch}
       className={`px-4 py-2 ${SECONDARY_COLOR} ${SECONDARY_COLOR_HOVER} transition-all rounded shadow-md border-2 border-solid border-b-tertiary-dark dark:border-0`}

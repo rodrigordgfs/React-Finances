@@ -1,3 +1,4 @@
+import moment from "moment";
 import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import {
@@ -5,12 +6,10 @@ import {
   INFO_COLOR_HOVER,
   POSITIVE_COLOR,
   POSITIVE_COLOR_HOVER,
-  TEXT_PRIMARY_COLOR,
+  TEXT_PRIMARY_COLOR
 } from "../../utils/colors";
 import {
-  CATEGORIES_OPTIONS,
-  TYPES_OPTIONS,
-  REPEAT_OPTIONS,
+  CATEGORIES_OPTIONS, REPEAT_OPTIONS, TYPES_OPTIONS
 } from "../../utils/constants";
 
 export default function Form({ onSubmitData = null, selectedTransaction }) {
@@ -18,13 +17,13 @@ export default function Form({ onSubmitData = null, selectedTransaction }) {
 
   const showRepeat = () => !selectedTransaction;
 
-  useEffect(() => {
+  useEffect(() => { 
     if (selectedTransaction) {
       setValue("type", selectedTransaction.type);
       setValue("category", selectedTransaction.category);
       setValue("title", selectedTransaction.title);
       setValue("value", selectedTransaction.amount);
-      setValue("date", selectedTransaction.date);
+      setValue("date", moment(selectedTransaction.date).format("YYYY-MM"));
     }
   }, [selectedTransaction]);
 
@@ -114,7 +113,7 @@ export default function Form({ onSubmitData = null, selectedTransaction }) {
       </label>
       <input
         className="font-poppins p-2 rounded shadow-md"
-        type="date"
+        type="month"
         id="date"
         required
         {...register("date")}

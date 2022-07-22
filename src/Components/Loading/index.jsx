@@ -25,7 +25,7 @@ export default function Loading() {
           </div>
           <div
             className={`${TERTIARY_COLOR} cursor-wait animate-pulse h-14 w-14 rounded shadow-md`}
-          /> 
+          />
           <div
             className={`${TERTIARY_COLOR} cursor-wait animate-pulse h-14 w-14 rounded shadow-md`}
           />

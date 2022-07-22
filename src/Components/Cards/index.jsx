@@ -1,9 +1,13 @@
 import {
-  ArrowNarrowDownIcon, ArrowNarrowUpIcon, ScaleIcon
+  ArrowNarrowDownIcon,
+  ArrowNarrowUpIcon,
+  ScaleIcon,
 } from "@heroicons/react/outline";
 import {
-  ICONS_COLOR, NEGATIVE_COLOR,
-  POSITIVE_COLOR, SECONDARY_COLOR
+  ICONS_COLOR,
+  NEGATIVE_COLOR,
+  POSITIVE_COLOR,
+  SECONDARY_COLOR,
 } from "../../utils/colors";
 import { formatedMoney } from "../../utils/moneyFormat";
 import Card from "../Card";

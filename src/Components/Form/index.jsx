@@ -6,10 +6,12 @@ import {
   INFO_COLOR_HOVER,
   POSITIVE_COLOR,
   POSITIVE_COLOR_HOVER,
-  TEXT_PRIMARY_COLOR
+  TEXT_PRIMARY_COLOR,
 } from "../../utils/colors";
 import {
-  CATEGORIES_OPTIONS, REPEAT_OPTIONS, TYPES_OPTIONS
+  CATEGORIES_OPTIONS,
+  REPEAT_OPTIONS,
+  TYPES_OPTIONS,
 } from "../../utils/constants";
 
 export default function Form({ onSubmitData = null, selectedTransaction }) {
@@ -17,7 +19,7 @@ export default function Form({ onSubmitData = null, selectedTransaction }) {
 
   const showRepeat = () => !selectedTransaction;
 
-  useEffect(() => { 
+  useEffect(() => {
     if (selectedTransaction) {
       setValue("type", selectedTransaction.type);
       setValue("category", selectedTransaction.category);

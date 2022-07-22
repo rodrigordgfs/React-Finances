@@ -1,4 +1,4 @@
-import { PlusCircleIcon, PrinterIcon } from '@heroicons/react/outline';
+import { PlusCircleIcon, PrinterIcon } from "@heroicons/react/outline";
 import { useEffect, useState } from "react";
 import { ICONS_COLOR } from "../../utils/colors";
 import { infoMessage } from "../../utils/toastify";
@@ -66,4 +66,3 @@ export default function Options({
     </div>
   );
 }
- 

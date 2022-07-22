@@ -1,4 +1,4 @@
-import { CurrencyDollarIcon } from '@heroicons/react/outline';
+import { CurrencyDollarIcon } from "@heroicons/react/outline";
 import { ICONS_COLOR, TEXT_PRIMARY_COLOR } from "../../utils/colors";
 
 export default function Logo() {
@@ -13,4 +13,3 @@ export default function Logo() {
     </a>
   );
 }
- 

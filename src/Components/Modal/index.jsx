@@ -1,5 +1,5 @@
 import { XIcon } from "@heroicons/react/outline";
-import moment from 'moment';
+import moment from "moment";
 import ReactModal from "react-modal";
 import { v4 as uuidv4 } from "uuid";
 import TransactionService from "../../services/transactions";
@@ -22,7 +22,7 @@ export default function Modal({
       onRequestClose(newTransaction);
     }
   };
- 
+
   const handleSubmitData = (data) => {
     const body = {
       id: selectedTransaction ? selectedTransaction.id : uuidv4(),

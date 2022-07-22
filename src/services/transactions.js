@@ -5,8 +5,7 @@ class TransactionsService extends Axios {
     super({
       url: "transactions",
       config: {
-        // baseURL: "https://api-finance-react.herokuapp.com/",
-        baseURL: "http://localhost:8888/",
+        baseURL: "https://api-finance-react.herokuapp.com/",
       },
     });
   }

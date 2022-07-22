@@ -1,13 +1,13 @@
 const PRIMARY_COLOR = "bg-primary-light dark:bg-primary-dark";
 const SECONDARY_COLOR = "bg-secondary-light dark:bg-secondary-dark";
 const SECONDARY_COLOR_HOVER =
-  "hover:bg-tertiary-light dark:hover:bg-tertiary-dark";
+    "hover:bg-tertiary-light dark:hover:bg-tertiary-dark";
 const TERTIARY_COLOR = "bg-tertiary-light dark:bg-tertiary-dark";
 
 const TEXT_PRIMARY_COLOR =
-  "text-text-primary-light dark:text-text-primary-dark";
+    "text-text-primary-light dark:text-text-primary-dark";
 const TEXT_SECONDARY_COLOR =
-  "text-text-primary-light dark:text-text-primary-dark";
+    "text-text-primary-light dark:text-text-primary-dark";
 
 const POSITIVE_COLOR = "bg-positive";
 const POSITIVE_COLOR_HOVER = "hover:bg-positive-hover";
@@ -23,7 +23,7 @@ const ICONS_COLOR = "text-text-primary-light dark:text-text-primary-dark";
 const BORDER_OUTLINE_POSITIVE_COLOR = "outline-positive";
 const BORDER_OUTLINE_NEGATIVE_COLOR = "outline-negative";
 const WHITE = "white";
- 
+
 export {
   PRIMARY_COLOR,
   SECONDARY_COLOR,
@@ -44,4 +44,3 @@ export {
   ICONS_COLOR,
   WHITE,
 };
-

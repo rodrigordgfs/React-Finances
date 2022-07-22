@@ -1,4 +1,3 @@
-import React from "react";
 import { TEXT_PRIMARY_COLOR } from "../../utils/colors";
 
 export default function Card({ title, description, color, children }) {

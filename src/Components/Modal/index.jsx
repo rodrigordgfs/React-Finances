@@ -1,9 +1,8 @@
 import { XIcon } from "@heroicons/react/outline";
 import moment from 'moment';
-import { useContext, useEffect, useState } from "react";
+import { useState } from "react";
 import ReactModal from "react-modal";
 import { v4 as uuidv4 } from "uuid";
-import { ThemeContext } from "../../contexts/ThemeProvider/context";
 import TransactionService from "../../services/transactions";
 import { ICONS_COLOR, TEXT_PRIMARY_COLOR } from "../../utils/colors";
 import { errorMessage, successMessage } from "../../utils/toastify";
@@ -19,14 +18,7 @@ export default function Modal({
   title,
   selectedTransaction,
 }) {
-  const themeContext = useContext(ThemeContext);
-  const { themeState, themeDispatch } = themeContext;
   const [theme, setTheme] = useState("");
-
-  useEffect(() => {
-    setTheme(themeState);
-    console.log(themeState);
-  });
 
   const handleClose = (newTransaction = false) => {
     if (onRequestClose) {

@@ -1,18 +1,15 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import App from "./Pages/Home";
-import "./styles/reset.css";
-import "./styles/tailwind.css";
-import "./styles/global.css";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { ThemeProvider } from "./contexts/ThemeProvider";
+import App from "./Pages/Home";
+import "./styles/global.css";
+import "./styles/reset.css";
+import "./styles/tailwind.css";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <ThemeProvider>
-      <App />
-    </ThemeProvider>
+    <App />
     <ToastContainer />
   </React.StrictMode>
 );

@@ -1,12 +1,8 @@
-import { useContext, useEffect } from "react";
+import { useEffect } from "react";
 import { useLocalStorage } from "../../hooks/useLocalStorage";
-import { changeTheme } from "../../contexts/ThemeProvider/actions";
-import { ThemeContext } from "../../contexts/ThemeProvider/context";
 import { SECONDARY_COLOR, SECONDARY_COLOR_HOVER } from "../../utils/colors";
 
 export default function User() {
-  const themeContext = useContext(ThemeContext);
-  const { themeState, themeDispatch } = themeContext;
 
   const [theme, setTheme] = useLocalStorage("theme", "light");
 
@@ -16,10 +12,8 @@ export default function User() {
       window.matchMedia("(prefers-color-scheme: dark)").matches
     ) {
       setTheme("dark");
-      changeTheme(themeDispatch, "dark");
     } else {
       setTheme("light");
-      changeTheme(themeDispatch, "light");
     }
   }, []);
 
@@ -34,7 +28,6 @@ export default function User() {
   const handleThemeSwitch = () => {
     const currentTheme = theme === "dark" ? "light" : "dark"
     setTheme(currentTheme);
-    changeTheme(themeDispatch, currentTheme);
   }
 
   return (

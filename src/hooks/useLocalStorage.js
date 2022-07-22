@@ -22,5 +22,5 @@ export function useLocalStorage(key, initialValue = "") {
     [key]
   );
 
-  return [state, setValue];
+  return [state, setValue]; 
 }

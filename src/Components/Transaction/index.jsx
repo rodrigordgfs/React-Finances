@@ -1,23 +1,19 @@
-import moment from "moment";
-import { formatedMoney } from "../../utils/moneyFormat";
-import IconButton from "../IconButton";
 import { PencilIcon, TrashIcon } from "@heroicons/react/outline";
+import moment from "moment";
 import TransactionService from "../../services/transactions";
-import { errorMessage, successMessage } from "../../utils/toastify";
 import {
   BORDER_OUTLINE_NEGATIVE_COLOR,
-  BORDER_OUTLINE_POSITIVE_COLOR,
-  INFO_COLOR,
+  BORDER_OUTLINE_POSITIVE_COLOR, ICONS_COLOR, INFO_COLOR,
   INFO_COLOR_HOVER,
   NEGATIVE_COLOR,
-  NEGATIVE_COLOR_HOVER,
-  TEXT_NEGATIVE_COLOR,
+  NEGATIVE_COLOR_HOVER, TERTIARY_COLOR, TEXT_NEGATIVE_COLOR,
   TEXT_POSITIVE_COLOR,
   TEXT_PRIMARY_COLOR,
-  TEXT_SECONDARY_COLOR,
-  TERTIARY_COLOR,
-  ICONS_COLOR,
+  TEXT_SECONDARY_COLOR
 } from "../../utils/colors";
+import { formatedMoney } from "../../utils/moneyFormat";
+import { errorMessage, successMessage } from "../../utils/toastify";
+import IconButton from "../IconButton";
 
 export default function Transaction({
   data,
@@ -59,7 +55,7 @@ export default function Transaction({
   };
 
   return (
-    <div
+    <div 
       className={`${TERTIARY_COLOR} transition-all flex flex-row items-center rounded px-2 py-4 space-y-1 outline outline-offset-2 ${borderColor()}`}
     >
       <div className="flex-col w-full">

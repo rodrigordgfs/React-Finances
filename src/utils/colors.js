@@ -23,7 +23,7 @@ const ICONS_COLOR = "text-text-primary-light dark:text-text-primary-dark";
 const BORDER_OUTLINE_POSITIVE_COLOR = "outline-positive";
 const BORDER_OUTLINE_NEGATIVE_COLOR = "outline-negative";
 const WHITE = "white";
-
+ 
 export {
   PRIMARY_COLOR,
   SECONDARY_COLOR,
@@ -44,3 +44,4 @@ export {
   ICONS_COLOR,
   WHITE,
 };
+

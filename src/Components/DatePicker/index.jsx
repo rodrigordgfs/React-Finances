@@ -5,7 +5,7 @@ import { TransactionContext } from "../../contexts/Transaction";
 import {
   ICONS_COLOR,
   SECONDARY_COLOR,
-  TEXT_SECONDARY_COLOR
+  TEXT_SECONDARY_COLOR,
 } from "../../utils/colors";
 import { getMonth } from "../../utils/date";
 import IconButtonTransparent from "../IconButtonTransparent";

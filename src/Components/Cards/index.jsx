@@ -1,7 +1,7 @@
 import {
   ArrowNarrowDownIcon,
   ArrowNarrowUpIcon,
-  ScaleIcon
+  ScaleIcon,
 } from "@heroicons/react/outline";
 import { useContext } from "react";
 import { TransactionContext } from "../../contexts/Transaction";
@@ -9,7 +9,7 @@ import {
   ICONS_COLOR,
   NEGATIVE_COLOR,
   POSITIVE_COLOR,
-  SECONDARY_COLOR
+  SECONDARY_COLOR,
 } from "../../utils/colors";
 import { formatedMoney } from "../../utils/moneyFormat";
 import Card from "../Card";

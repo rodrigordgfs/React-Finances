@@ -5,7 +5,7 @@ import {
   ICONS_COLOR,
   SECONDARY_COLOR,
   TEXT_PRIMARY_COLOR,
-  TEXT_SECONDARY_COLOR
+  TEXT_SECONDARY_COLOR,
 } from "../../utils/colors";
 import Transaction from "../Transaction";
 

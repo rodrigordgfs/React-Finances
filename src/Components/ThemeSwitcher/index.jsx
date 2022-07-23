@@ -3,6 +3,7 @@ import { useLocalStorage } from "../../hooks/useLocalStorage";
 import { SECONDARY_COLOR, SECONDARY_COLOR_HOVER } from "../../utils/colors";
 
 export default function User() {
+
   const [theme, setTheme] = useLocalStorage("theme", "light");
 
   useEffect(() => {
@@ -24,7 +25,10 @@ export default function User() {
     }
   }, [theme]);
 
-  const handleThemeSwitch = () => setTheme(theme === "dark" ? "light" : "dark");
+  const handleThemeSwitch = () => {
+    const currentTheme = theme === "dark" ? "light" : "dark"
+    setTheme(currentTheme);
+  }
 
   return (
     <button 

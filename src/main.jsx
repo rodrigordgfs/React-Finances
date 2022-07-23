@@ -1,15 +1,15 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import App from './Pages/Home'
-import './styles/reset.css'
-import './styles/tailwind.css'
-import './styles/global.css'
+import React from "react";
+import ReactDOM from "react-dom/client";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Router from "./Routes";
+import "./styles/global.css";
+import "./styles/reset.css";
+import "./styles/tailwind.css";
 
-ReactDOM.createRoot(document.getElementById('root')).render(
+ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <App />
+    <Router />
     <ToastContainer />
   </React.StrictMode>
-)
+);

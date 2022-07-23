@@ -13,4 +13,3 @@ class TransactionsService extends Axios {
 }
 
 export default new TransactionsService();
- 

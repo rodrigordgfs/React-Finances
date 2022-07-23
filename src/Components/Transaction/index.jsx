@@ -14,7 +14,7 @@ import {
   TEXT_NEGATIVE_COLOR,
   TEXT_POSITIVE_COLOR,
   TEXT_PRIMARY_COLOR,
-  TEXT_SECONDARY_COLOR
+  TEXT_SECONDARY_COLOR,
 } from "../../utils/colors";
 import { formatedMoney } from "../../utils/moneyFormat";
 import IconButton from "../IconButton";

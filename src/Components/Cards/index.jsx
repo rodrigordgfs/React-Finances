@@ -1,14 +1,21 @@
 import {
-  ArrowNarrowDownIcon, ArrowNarrowUpIcon, ScaleIcon
+  ArrowNarrowDownIcon,
+  ArrowNarrowUpIcon,
+  ScaleIcon
 } from "@heroicons/react/outline";
+import { useContext } from "react";
+import { TransactionContext } from "../../contexts/Transaction";
 import {
-  ICONS_COLOR, NEGATIVE_COLOR,
-  POSITIVE_COLOR, SECONDARY_COLOR
+  ICONS_COLOR,
+  NEGATIVE_COLOR,
+  POSITIVE_COLOR,
+  SECONDARY_COLOR
 } from "../../utils/colors";
 import { formatedMoney } from "../../utils/moneyFormat";
 import Card from "../Card";
 
-export default function Cards({ revenue = 0, expense = 0, balance = 0 }) {
+export default function Cards() {
+  const { revenue, expense, balance } = useContext(TransactionContext);
   return (
     <div className="flex flex-col max-w-5xl my-0 mx-auto px-2">
       <div className="flex md:flex-row flex-col items-center gap-5">

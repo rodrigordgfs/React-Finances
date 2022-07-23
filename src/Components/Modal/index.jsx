@@ -1,65 +1,38 @@
 import { XIcon } from "@heroicons/react/outline";
-import moment from 'moment';
-import { useState } from "react";
+import { useContext, useEffect } from "react";
 import ReactModal from "react-modal";
-import { v4 as uuidv4 } from "uuid";
-import TransactionService from "../../services/transactions";
+import { TransactionContext } from "../../contexts/Transaction";
 import { ICONS_COLOR, TEXT_PRIMARY_COLOR } from "../../utils/colors";
-import { errorMessage, successMessage } from "../../utils/toastify";
 import Form from "../Form";
 import IconButton from "../IconButton";
 import "./index.css";
 
 ReactModal.setAppElement("#root");
 
-export default function Modal({
-  isOpen,
-  onRequestClose,
-  title,
-  selectedTransaction,
-}) {
-  const [theme, setTheme] = useState("");
+export default function Modal({ title }) {
+  const {
+    isModalOpened,
+    setIsModalOpened,
+    getTransactions,
+    selectedTransaction,
+    setSelectedTransaction,
+  } = useContext(TransactionContext);
 
-  const handleClose = (newTransaction = false) => {
-    if (onRequestClose) {
-      onRequestClose(newTransaction);
-    }
+  const handleClose = () => {
+    setIsModalOpened(false);
+    getTransactions();
+    setSelectedTransaction(null);
   };
- 
-  const handleSubmitData = (data) => {
-    const body = {
-      id: selectedTransaction ? selectedTransaction.id : uuidv4(),
-      title: data.title,
-      amount: data.value,
-      category: data.category,
-      type: data.type,
-      date: moment(data.date).format("YYYY-MM-01"),
-      repeat: data.repeat,
-    };
+
+  useEffect(() => {
     if (selectedTransaction) {
-      TransactionService.patch(selectedTransaction.id, body)
-        .then(() => {
-          successMessage("Transação atualizada com sucesso!");
-          handleClose(true);
-        })
-        .catch(({ message }) => {
-          errorMessage(message);
-        });
-    } else {
-      TransactionService.post(body)
-        .then(() => {
-          successMessage("Transação adicionada com sucesso!");
-          handleClose(true);
-        })
-        .catch(({ message }) => {
-          errorMessage(message);
-        });
+      setIsModalOpened(true);
     }
-  };
+  }, [selectedTransaction]);
 
   return (
     <ReactModal
-      isOpen={isOpen}
+      isOpen={isModalOpened}
       onRequestClose={handleClose}
       overlayClassName="modal-overlay"
       className="modal-content"
@@ -74,10 +47,7 @@ export default function Modal({
           <XIcon className={`h-7 w-7 ${ICONS_COLOR}`} />
         </IconButton>
       </div>
-      <Form
-        onSubmitData={handleSubmitData}
-        selectedTransaction={selectedTransaction}
-      />
+      <Form />
     </ReactModal>
   );
 }

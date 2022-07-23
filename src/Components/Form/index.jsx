@@ -1,6 +1,7 @@
 import moment from "moment";
-import { useEffect } from "react";
+import { useContext, useEffect } from "react";
 import { useForm } from "react-hook-form";
+import { TransactionContext } from "../../contexts/Transaction";
 import {
   INFO_COLOR,
   INFO_COLOR_HOVER,
@@ -9,15 +10,19 @@ import {
   TEXT_PRIMARY_COLOR
 } from "../../utils/colors";
 import {
-  CATEGORIES_OPTIONS, REPEAT_OPTIONS, TYPES_OPTIONS
+  CATEGORIES_OPTIONS,
+  REPEAT_OPTIONS,
+  TYPES_OPTIONS
 } from "../../utils/constants";
 
-export default function Form({ onSubmitData = null, selectedTransaction }) {
+export default function Form() {
+  const { selectedTransaction, insertOrUpdateTransaction } =
+    useContext(TransactionContext);
   const { register, handleSubmit, setValue } = useForm();
 
   const showRepeat = () => !selectedTransaction;
 
-  useEffect(() => { 
+  useEffect(() => {
     if (selectedTransaction) {
       setValue("type", selectedTransaction.type);
       setValue("category", selectedTransaction.category);
@@ -28,9 +33,14 @@ export default function Form({ onSubmitData = null, selectedTransaction }) {
   }, [selectedTransaction]);
 
   const onSubmit = (data) => {
-    if (onSubmitData) {
-      onSubmitData(data);
-    }
+    insertOrUpdateTransaction({
+      title: data.title,
+      amount: data.value,
+      category: data.category,
+      type: data.type,
+      date: moment(data.date).format("YYYY-MM-01"),
+      repeat: data.repeat,
+    });
   };
 
   return (

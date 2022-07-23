@@ -1,26 +1,29 @@
 import { PencilIcon, TrashIcon } from "@heroicons/react/outline";
 import moment from "moment";
-import TransactionService from "../../services/transactions";
+import { useContext } from "react";
+import { TransactionContext } from "../../contexts/Transaction";
 import {
   BORDER_OUTLINE_NEGATIVE_COLOR,
-  BORDER_OUTLINE_POSITIVE_COLOR, ICONS_COLOR, INFO_COLOR,
+  BORDER_OUTLINE_POSITIVE_COLOR,
+  ICONS_COLOR,
+  INFO_COLOR,
   INFO_COLOR_HOVER,
   NEGATIVE_COLOR,
-  NEGATIVE_COLOR_HOVER, TERTIARY_COLOR, TEXT_NEGATIVE_COLOR,
+  NEGATIVE_COLOR_HOVER,
+  TERTIARY_COLOR,
+  TEXT_NEGATIVE_COLOR,
   TEXT_POSITIVE_COLOR,
   TEXT_PRIMARY_COLOR,
   TEXT_SECONDARY_COLOR
 } from "../../utils/colors";
 import { formatedMoney } from "../../utils/moneyFormat";
-import { errorMessage, successMessage } from "../../utils/toastify";
 import IconButton from "../IconButton";
 
-export default function Transaction({
-  data,
-  onSelectTransaction,
-  onDeleteTransactions,
-}) {
-  const { amount, category, date, id, title, type } = data;
+export default function Transaction({ transaction }) {
+  const { setSelectedTransaction, deleteTransaction } =
+    useContext(TransactionContext);
+
+  const { amount, category, date, id, title, type } = transaction;
 
   const isRecept = () => type === "Receita";
   const textColor = () =>
@@ -34,28 +37,15 @@ export default function Transaction({
   const formatedDate = () => moment(date).format("DD/MM/YYYY");
 
   const handleOnClickTransaction = () => {
-    onSelectTransaction(data);
-  };
-
-  const handleUpdateTransactions = () => {
-    if (onDeleteTransactions) {
-      onDeleteTransactions();
-    }
+    setSelectedTransaction(transaction);
   };
 
   const handleOnDeleteTransaction = () => {
-    TransactionService.delete(id)
-      .then(() => {
-        successMessage("Transação excluída com sucesso!");
-        handleUpdateTransactions();
-      })
-      .catch(({ message }) => {
-        errorMessage(message);
-      });
+    deleteTransaction(id);
   };
 
   return (
-    <div 
+    <div
       className={`${TERTIARY_COLOR} transition-all flex flex-row items-center rounded px-2 py-4 space-y-1 outline outline-offset-2 ${borderColor()}`}
     >
       <div className="flex-col w-full">

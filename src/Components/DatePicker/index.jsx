@@ -1,6 +1,7 @@
 import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/outline";
 import moment from "moment";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { TransactionContext } from "../../contexts/Transaction";
 import {
   ICONS_COLOR,
   SECONDARY_COLOR,
@@ -9,16 +10,15 @@ import {
 import { getMonth } from "../../utils/date";
 import IconButtonTransparent from "../IconButtonTransparent";
 
-export default function DatePicker({ currentDate, onDateChange }) {
-  const [date, setDate] = useState(moment(currentDate).format("YYYY-MM-DD"));
+export default function DatePicker() {
+  const { datePicked, setDatePicked } = useContext(TransactionContext);
+  const [date, setDate] = useState(moment(datePicked).format("YYYY-MM-DD"));
 
   const formatedDate = () =>
     `${getMonth(date)} de ${moment(date).format("YYYY")}`;
 
   const handleOnChange = (data) => {
-    if (onDateChange) {
-      onDateChange(data);
-    }
+    setDatePicked(moment(data).format("YYYY-MM"));
   };
 
   const handleIncreaseMonth = () => {

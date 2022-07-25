@@ -1,5 +1,4 @@
 import { PencilIcon, TrashIcon } from "@heroicons/react/outline";
-import moment from "moment";
 import { useContext } from "react";
 import { TransactionContext } from "../../contexts/Transaction";
 import {
@@ -14,7 +13,7 @@ import {
   TEXT_NEGATIVE_COLOR,
   TEXT_POSITIVE_COLOR,
   TEXT_PRIMARY_COLOR,
-  TEXT_SECONDARY_COLOR,
+  TEXT_SECONDARY_COLOR
 } from "../../utils/colors";
 import { formatedMoney } from "../../utils/moneyFormat";
 import IconButton from "../IconButton";
@@ -23,7 +22,8 @@ export default function Transaction({ transaction }) {
   const { setSelectedTransaction, deleteTransaction } =
     useContext(TransactionContext);
 
-  const { amount, category, date, id, title, type } = transaction;
+  const { amount, category, date, id, title, type, paid } = transaction;
+  console.log(title, paid);
 
   const isRecept = () => type === "Receita";
   const textColor = () =>
@@ -34,7 +34,6 @@ export default function Transaction({ transaction }) {
       : `${BORDER_OUTLINE_NEGATIVE_COLOR}`;
   const value = () =>
     formatedMoney(isRecept() ? Number(amount) : Number(amount) * -1);
-  const formatedDate = () => moment(date).format("DD/MM/YYYY");
 
   const handleOnClickTransaction = () => {
     setSelectedTransaction(transaction);
@@ -60,10 +59,16 @@ export default function Transaction({ transaction }) {
           </p>
         </div>
         <div
-          className={`font-poppins ${TEXT_SECONDARY_COLOR} flex flex-row items-center justify-between`}
+          className={`font-poppins font-semibold ${TEXT_SECONDARY_COLOR} flex flex-row items-center justify-between`}
         >
           <p>{category}</p>
-          <p>{formatedDate()}</p>
+          {!isRecept() && (
+            <p
+              className={`${paid ? TEXT_POSITIVE_COLOR : TEXT_NEGATIVE_COLOR}`}
+            >
+              {paid ? "Pago" : "Não Pago"}
+            </p>
+          )}
         </div>
       </div>
       <div className="flex flex-row gap-2 pl-4">

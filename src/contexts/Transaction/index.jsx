@@ -103,6 +103,15 @@ export const TransactionProvider = ({ children }) => {
     }
   };
 
+  const changeStatusPayment = (paid) => {
+    TransactionsService.patch(`${selectedTransaction.id}/pay`, {
+      paid,
+    }).then(() => {
+      successMessage("Transação atualizada com sucesso!");
+      setIsModalOpened(false);
+    });
+  };
+
   return (
     <TransactionContext.Provider
       value={{
@@ -124,6 +133,7 @@ export const TransactionProvider = ({ children }) => {
         getTransactions,
         deleteTransaction,
         insertOrUpdateTransaction,
+        changeStatusPayment,
       }}
     >
       {children}

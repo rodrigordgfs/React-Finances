@@ -5,22 +5,29 @@ import { TransactionContext } from "../../contexts/Transaction";
 import {
   INFO_COLOR,
   INFO_COLOR_HOVER,
+  NEGATIVE_COLOR,
+  NEGATIVE_COLOR_HOVER,
   POSITIVE_COLOR,
   POSITIVE_COLOR_HOVER,
-  TEXT_PRIMARY_COLOR,
+  TEXT_PRIMARY_COLOR
 } from "../../utils/colors";
 import {
   CATEGORIES_OPTIONS,
   REPEAT_OPTIONS,
-  TYPES_OPTIONS,
+  TYPES_OPTIONS
 } from "../../utils/constants";
 
 export default function Form() {
-  const { selectedTransaction, insertOrUpdateTransaction } =
-    useContext(TransactionContext);
+  const {
+    selectedTransaction,
+    insertOrUpdateTransaction,
+    changeStatusPayment,
+  } = useContext(TransactionContext);
   const { register, handleSubmit, setValue } = useForm();
 
-  const showRepeat = () => !selectedTransaction;
+  const hasTransactionSelected = () => !!selectedTransaction;
+  const payedTransaction = () => selectedTransaction.paid;
+  const isExpense = () => selectedTransaction.type === "Despesa";
 
   useEffect(() => {
     if (selectedTransaction) {
@@ -41,6 +48,10 @@ export default function Form() {
       date: moment(data.date).format("YYYY-MM-01"),
       repeat: data.repeat,
     });
+  };
+
+  const handleChangeStatusPayment = () => {
+    changeStatusPayment(!payedTransaction());
   };
 
   return (
@@ -128,7 +139,7 @@ export default function Form() {
         required
         {...register("date")}
       />
-      {showRepeat() && (
+      {!hasTransactionSelected() && (
         <>
           <label
             className={`font-poppins ${TEXT_PRIMARY_COLOR} mb-1 mt-2`}
@@ -153,6 +164,19 @@ export default function Form() {
         </>
       )}
       <div className="flex flex-row justify-end my-4 gap-4 w-full">
+        {hasTransactionSelected() && isExpense() && (
+          <button
+            onClick={handleChangeStatusPayment}
+            type="button"
+            className={`${
+              payedTransaction() ? NEGATIVE_COLOR : POSITIVE_COLOR
+            } ${
+              payedTransaction() ? NEGATIVE_COLOR_HOVER : POSITIVE_COLOR_HOVER
+            } ${TEXT_PRIMARY_COLOR} transition-all px-6 py-2 rounded shadow-md font-poppin font-semibold cursor-pointer`}
+          >
+            {payedTransaction() ? "Remover Pagamento" : "Pagar"}
+          </button>
+        )}
         <input
           type="reset"
           className={`${INFO_COLOR} ${INFO_COLOR_HOVER} ${TEXT_PRIMARY_COLOR} transition-all px-6 py-2 rounded shadow-md font-poppin font-semibold cursor-pointer`}

@@ -11,7 +11,7 @@ export default function Logout() {
   return (
     <div
       onClick={handleLogout}
-      className={`flex flex-row my-0 mx-auto gap-2 w-fit items-center justify-between px-6 py-2 cursor-pointer ${TERTIARY_COLOR} rounded shadow-md`}
+      className={`flex flex-row my-0 mx-auto gap-2 w-fit items-center justify-between px-6 py-2 cursor-pointer ${TERTIARY_COLOR} rounded shadow-md mb-8`}
     >
       <p className={`font-poppins font-semibold ${TEXT_PRIMARY_COLOR}`}>Sair</p>
     </div>

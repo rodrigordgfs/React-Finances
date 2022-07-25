@@ -7,7 +7,7 @@ import { useLocalStorage } from "../../hooks/useLocalStorage";
 import {
   PRIMARY_COLOR,
   TERTIARY_COLOR,
-  TEXT_PRIMARY_COLOR
+  TEXT_PRIMARY_COLOR,
 } from "../../utils/colors";
 
 export default function Login() {

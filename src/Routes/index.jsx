@@ -1,6 +1,7 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { TransactionProvider } from "../contexts/Transaction";
 import Home from "../Pages/Home";
+import Login from "../Pages/Login";
 
 function Router() {
   return (
@@ -14,6 +15,7 @@ function Router() {
             </TransactionProvider>
           }
         />
+        <Route path="login" element={<Login />} />
       </Routes>
     </BrowserRouter>
   );

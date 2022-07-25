@@ -6,7 +6,6 @@ class TransactionsService extends Axios {
       url: "transactions",
       config: {
         baseURL: "https://api-finance-react.herokuapp.com/",
-        // baseURL: "https://capable-fish-meat.glitch.me/",
         // baseURL: "http://localhost:8888/",
       },
     });

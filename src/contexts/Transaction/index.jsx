@@ -15,6 +15,9 @@ export const TransactionProvider = ({ children }) => {
   const [expense, setExpense] = useState(0);
   const [balance, setBalance] = useState(0);
   const [isModalOpened, setIsModalOpened] = useState(false);
+  const [user, setUser] = useState(
+    JSON.parse(localStorage.getItem("user")) || null
+  );
 
   const getRevenue = (data) => {
     return data
@@ -35,11 +38,11 @@ export const TransactionProvider = ({ children }) => {
   };
 
   useEffect(() => {
-    getTransactions();
+    if (user) getTransactions();
   }, [datePicked]);
 
   useEffect(() => {
-    if (!isModalOpened) {
+    if (user && !isModalOpened) {
       getTransactions();
       setSelectedTransaction(null);
     }
@@ -47,21 +50,24 @@ export const TransactionProvider = ({ children }) => {
 
   const getTransactions = () => {
     setLoading(true);
-    TransactionsService.get().then(({ data }) => {
-      const monthTransactions = data
-        .filter((x) => moment(x.date).format("YYYY-MM") === datePicked)
-        .sort((a, b) => {
-          a.updatedAt - b.updatedAt;
-        });
-      setTransactions(monthTransactions);
-      setRevenue(getRevenue(monthTransactions));
-      setExpense(getExpense(monthTransactions));
-      setBalance(getRevenue(monthTransactions) - getExpense(monthTransactions));
-      setLoading(false);
-    })
-    .catch(({message}) => {
-      errorMessage(message);
-    });
+    TransactionsService.get({ user: user?.uid })
+      .then(({ data }) => {
+        const monthTransactions = data
+          .filter((x) => moment(x.date).format("YYYY-MM") === datePicked)
+          .sort((a, b) => {
+            a.updatedAt - b.updatedAt;
+          });
+        setTransactions(monthTransactions);
+        setRevenue(getRevenue(monthTransactions));
+        setExpense(getExpense(monthTransactions));
+        setBalance(
+          getRevenue(monthTransactions) - getExpense(monthTransactions)
+        );
+        setLoading(false);
+      })
+      .catch(({ message }) => {
+        errorMessage(message);
+      });
   };
 
   const deleteTransaction = (id) => {
@@ -86,7 +92,7 @@ export const TransactionProvider = ({ children }) => {
           errorMessage(message);
         });
     } else {
-      TransactionsService.post({ ...body, id: uuidv4() })
+      TransactionsService.post({ ...body, id: uuidv4(), user: user.uid })
         .then(() => {
           successMessage("Transação adicionada com sucesso!");
           setIsModalOpened(false);

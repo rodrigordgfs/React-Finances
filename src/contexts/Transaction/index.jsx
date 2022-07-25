@@ -58,6 +58,9 @@ export const TransactionProvider = ({ children }) => {
       setExpense(getExpense(monthTransactions));
       setBalance(getRevenue(monthTransactions) - getExpense(monthTransactions));
       setLoading(false);
+    })
+    .catch(({message}) => {
+      errorMessage(message);
     });
   };
 

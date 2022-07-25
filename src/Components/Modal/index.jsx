@@ -17,6 +17,8 @@ export default function Modal({ title }) {
     selectedTransaction,
     setSelectedTransaction,
   } = useContext(TransactionContext);
+  const theme = JSON.parse(localStorage.getItem("theme"));
+  console.log(theme);
 
   const handleClose = () => {
     setIsModalOpened(false);
@@ -34,8 +36,12 @@ export default function Modal({ title }) {
     <ReactModal
       isOpen={isModalOpened}
       onRequestClose={handleClose}
-      overlayClassName="modal-overlay"
-      className="modal-content"
+      overlayClassName={`${
+        theme === "dark" ? "modal-overlay-dark" : "modal-overlay-light"
+      }`}
+      className={`${
+        theme === "dark" ? "modal-content-dark" : "modal-content-light"
+      }`}
     >
       <div className="flex flex-row items-center justify-between w-full">
         <h2

@@ -23,7 +23,6 @@ export default function Login() {
   const handleLogin = () => {
     signInWithGoogle().then(() => {
       const user = JSON.parse(localStorage.getItem("user")) || null;
-      console.log(user);
       if (user?.uid) {
         navigate("/");
       }

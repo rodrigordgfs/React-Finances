@@ -12,7 +12,9 @@ export default function Header() {
   return (
     <div className="flex flex-col px-2 py-6">
       <div className="max-w-5xl w-full my-0 mx-auto flex flex-row items-center justify-between">
-        <Logo />
+        <div className="hidden md:block">
+          <Logo />
+        </div>
         <div className="flex flex-row gap-2">
           <img
             className="rounded-full h-8 w-8"

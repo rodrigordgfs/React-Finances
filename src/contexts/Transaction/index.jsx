@@ -54,9 +54,7 @@ export const TransactionProvider = ({ children }) => {
       .then(({ data }) => {
         const monthTransactions = data
           .filter((x) => moment(x.date).format("YYYY-MM") === datePicked)
-          .sort((a, b) => {
-            a.updatedAt - b.updatedAt;
-          });
+          .sort((a, b) => a.updatedAt - b.updatedAt);
         setTransactions(monthTransactions);
         setRevenue(getRevenue(monthTransactions));
         setExpense(getExpense(monthTransactions));
